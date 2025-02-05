@@ -6,7 +6,7 @@ tokenizer = ByteLevelBPETokenizer()
 
 tokenizer.train(
     files=paths,
-    vocab_size=5000,
+    vocab_size=10000,
     min_frequency=2,
     special_tokens=["<s>", "<pad>", "</s>", "<unk>", "<mask>", "<N>"],
 )
