@@ -167,7 +167,7 @@ print(loss)
 
 print(
     tokenizer.decode(
-        m.generate(idx=torch.zeros((1, 1), dtype=torch.long), max_new_tokens=100)[
+        m.generate(idx=torch.zeros((1, 1), dtype=torch.long), max_new_tokens=1000)[
             0
         ].tolist()
     )
@@ -207,7 +207,7 @@ for steps in range(max_iters):
 print(loss.item())
 print(
     tokenizer.decode(
-        m.generate(idx=torch.zeros((1, 1), dtype=torch.long), max_new_tokens=2000)[
+        m.generate(idx=torch.zeros((1, 1), dtype=torch.long), max_new_tokens=1000)[
             0
         ].tolist()
     )
