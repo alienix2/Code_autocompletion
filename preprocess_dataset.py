@@ -55,4 +55,3 @@ with open("formatted_python_data.txt", "w") as f:
                         f.write(padded_substring + END_OF_SENTENCE + "\n")
         except Exception as e:
             print(f"Error processing {filepath}: {e}")
-
