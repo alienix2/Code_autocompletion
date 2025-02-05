@@ -25,7 +25,7 @@ n_embd = 32
 n_head = 4
 n_layers = 4
 dropout = 0.2
-learning_rate = 3e-4
+learning_rate = 1e-3
 
 
 def get_batch(split):
