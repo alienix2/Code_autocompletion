@@ -3,7 +3,7 @@ import os
 # Constants
 MAX_CHAR_LENGTH = 1000
 MIN_CHAR_LENGTH = 10
-BLOCK_SIZE = 256  # Length to pad/truncate sequences
+BLOCK_SIZE = 256
 NEWLINECHAR = "<N>"
 START_OF_SENTENCE = "<s>"
 END_OF_SENTENCE = "</s>"
