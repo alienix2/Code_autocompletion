@@ -143,7 +143,7 @@ class BigramLanguageModel(nn.Module):
     def generate(self, idx, max_new_tokens):
         for _ in range(max_new_tokens):
             idx_cond = idx[:, -BLOCK_SIZE:]
-            logits, loss = self(idx)
+            logits, loss = self(idx_cond)
             logits = logits[:, -1, :]
             probs = F.softmax(logits, dim=-1)
             idx_next = torch.multinomial(probs, num_samples=1)
@@ -164,7 +164,7 @@ def train_model(
         for split in ["train", "val"]:
             losses = torch.zeros(eval_iters)
             for k in range(eval_iters):
-                X, Y = get_batch(train_data if split == "train" else val_data, split)
+                X, Y = get_batch(train_data if split == "train" else val_data)
                 logits, loss = model(X, Y)
                 losses[k] = loss.item()
             out[split] = losses.mean()
@@ -175,7 +175,7 @@ def train_model(
     optimizer = torch.optim.AdamW(model.parameters(), lr=LEARNING_RATE)
 
     for steps in range(max_iters):
-        xb, yb = get_batch(train_data, "train")
+        xb, yb = get_batch(train_data)
         if steps % eval_iters == 0:
             print(estimate_loss(model))
         logits, loss = model(xb, yb)
