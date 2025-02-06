@@ -4,7 +4,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 tokenizer = ByteLevelBPETokenizer(
-    "python_tokenizer-vocab.json", "python_tokenizer-merges.txt"
+    "python_tokenizer-vocab.json",
+    "python_tokenizer-merges.txt",
 )
 
 # Load the data, encode it and save it as a tensor
@@ -24,8 +25,14 @@ batch_size = 32
 n_embd = 32
 n_head = 4
 n_layers = 4
-dropout = 0.2
-learning_rate = 1e-4
+dropout = 0.4
+learning_rate = 5e-5
+
+if torch.cuda.is_available():
+    device = torch.device("cuda")
+    print("using CUDA")
+else:
+    device = torch.device("cpu")
 
 
 def get_batch(split):
@@ -33,6 +40,7 @@ def get_batch(split):
     ix = torch.randint(len(data) - block_size, (batch_size,))
     x = torch.stack([data[i : i + block_size] for i in ix])
     y = torch.stack([data[i + 1 : i + block_size + 1] for i in ix])
+    x, y = x.to(device), y.to(device)
     return x, y
 
 
@@ -127,7 +135,7 @@ class BigramLanguageModel(nn.Module):
     def forward(self, idx, targets=None):
         B, T = idx.shape
         token_embd = self.token_embedding_table(idx)  # (B,T,C)
-        pos_embd = self.position_embedding_table(torch.arange(T))
+        pos_embd = self.position_embedding_table(torch.arange(T, device=device))
         x = token_embd + pos_embd
         x = self.blocks(x)
         x = self.ln_f(x)
@@ -160,22 +168,22 @@ class BigramLanguageModel(nn.Module):
         return idx
 
 
-m = BigramLanguageModel(tokenizer.get_vocab_size())
+m = BigramLanguageModel(tokenizer.get_vocab_size()).to(device)
 logits, loss = m(xb, yb)
 print(logits.shape)
 print(loss)
 
 print(
     tokenizer.decode(
-        m.generate(idx=torch.zeros((1, 1), dtype=torch.long), max_new_tokens=255)[
-            0
-        ].tolist()
+        m.generate(
+            idx=torch.zeros((1, 1), dtype=torch.long, device=device), max_new_tokens=255
+        )[0].tolist()
     )
 )
 
 optimizer = torch.optim.AdamW(m.parameters(), lr=learning_rate)
 
-max_iters = 5000
+max_iters = 10000
 eval_iters = 100
 
 
@@ -196,7 +204,6 @@ def estimate_loss():
 
 for steps in range(max_iters):
     xb, yb = get_batch("train")
-
     if steps % eval_iters == 0:
         print(estimate_loss())
     logits, loss = m(xb, yb)
@@ -207,10 +214,11 @@ for steps in range(max_iters):
 print(loss.item())
 print(
     tokenizer.decode(
-        m.generate(idx=torch.zeros((1, 1), dtype=torch.long), max_new_tokens=255)[
-            0
-        ].tolist()
+        m.generate(
+            idx=torch.zeros((1, 1), dtype=torch.long, device=device), max_new_tokens=255
+        )[0].tolist()
     )
 )
 
 torch.save(m.state_dict(), "downloaded_dataset.pth")
+
