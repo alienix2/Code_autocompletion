@@ -7,7 +7,7 @@ print(g.get_user().login)
 repo_number = 200
 
 # Random day
-query = f"language:python created:2024-10-01..2024-10-02"
+query = f"language:python created:2024-10-15..2024-10-16"
 result = g.search_repositories(query)
 print(result.totalCount)
 
