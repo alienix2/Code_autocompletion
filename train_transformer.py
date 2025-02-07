@@ -2,10 +2,11 @@ from transformer import train_model
 import torch
 
 data_path = "formatted_python_data.txt"
-tokenizer_path = "python_tokenizer"
-save_path = "downloaded_dataset.pth"
+vocab_path = "python_tokenizer-vocab.json"
+merges_path = "python_tokenizer-merges.txt"
+save_path = "python_model.pth"
 
-model, tokenizer = train_model(data_path, tokenizer_path, save_path)
+model, tokenizer = train_model(data_path, vocab_path, merges_path, save_path)
 
 # Generate some text starting from 0
 device = model.token_embedding_table.weight.device

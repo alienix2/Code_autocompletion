@@ -1,29 +1,27 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from tokenizers import Tokenizer
+from tokenizers import ByteLevelBPETokenizer
 
-# Hyperparameters
+# Define constants
 BLOCK_SIZE = 256
 BATCH_SIZE = 32
-N_EMBD = 64
+N_EMBD = 32
 N_HEAD = 4
-N_LAYERS = 6
-DROPOUT = 0.3
-LEARNING_RATE = 1e-4
+N_LAYERS = 4
+DROPOUT = 0.4
+LEARNING_RATE = 5e-5
 CHUNK_SIZE = 1024 * 51200
 
+# Check device availability
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
-def load_data(file_path, tokenizer):
+def load_data(file_path, tokenizer, chunk_size=CHUNK_SIZE):
     with open(file_path, "r") as f:
-        while True:
-            chunk = f.read(CHUNK_SIZE)
-            if not chunk:
-                break
+        for chunk in iter(lambda: f.read(chunk_size), ""):
             encoded_chunk = tokenizer.encode(chunk)
-            yield torch.tensor(encoded_chunk.ids)
+            yield torch.tensor(encoded_chunk.ids, dtype=torch.long)
 
 
 def split_data(data):
@@ -33,7 +31,7 @@ def split_data(data):
     return train_data, val_data
 
 
-def get_batch(data):
+def get_batch(data, split):
     ix = torch.randint(len(data) - BLOCK_SIZE, (BATCH_SIZE,))
     x = torch.stack([data[i : i + BLOCK_SIZE] for i in ix])
     y = torch.stack([data[i + 1 : i + BLOCK_SIZE + 1] for i in ix])
@@ -84,7 +82,7 @@ class FeedForward(nn.Module):
         super().__init__()
         self.net = nn.Sequential(
             nn.Linear(n_embd, n_embd * 4),
-            nn.GELU(),
+            nn.ReLU(),
             nn.Linear(n_embd * 4, n_embd),
             nn.Dropout(DROPOUT),
         )
@@ -141,7 +139,7 @@ class BigramLanguageModel(nn.Module):
     def generate(self, idx, max_new_tokens):
         for _ in range(max_new_tokens):
             idx_cond = idx[:, -BLOCK_SIZE:]
-            logits, loss = self(idx_cond)
+            logits, loss = self(idx)
             logits = logits[:, -1, :]
             probs = F.softmax(logits, dim=-1)
             idx_next = torch.multinomial(probs, num_samples=1)
@@ -149,10 +147,12 @@ class BigramLanguageModel(nn.Module):
         return idx
 
 
-def train_model(data_path, tokenizer_path, save_path, max_iters=10000, eval_iters=100):
-    # Load the tokenizer
-    tokenizer = Tokenizer.from_file(tokenizer_path)
-    data = torch.cat(list(load_data(data_path, tokenizer)))
+def train_model(
+    data_path, vocab_path, merges_path, save_path, max_iters=10000, eval_iters=100
+):
+    tokenizer = ByteLevelBPETokenizer(vocab_path, merges_path)
+    data_iter = load_data(data_path, tokenizer)
+    data = torch.cat(list(data_iter))
     train_data, val_data = split_data(data)
 
     def estimate_loss(model):
@@ -161,7 +161,7 @@ def train_model(data_path, tokenizer_path, save_path, max_iters=10000, eval_iter
         for split in ["train", "val"]:
             losses = torch.zeros(eval_iters)
             for k in range(eval_iters):
-                X, Y = get_batch(train_data if split == "train" else val_data)
+                X, Y = get_batch(train_data if split == "train" else val_data, split)
                 logits, loss = model(X, Y)
                 losses[k] = loss.item()
             out[split] = losses.mean()
@@ -172,7 +172,7 @@ def train_model(data_path, tokenizer_path, save_path, max_iters=10000, eval_iter
     optimizer = torch.optim.AdamW(model.parameters(), lr=LEARNING_RATE)
 
     for steps in range(max_iters):
-        xb, yb = get_batch(train_data)
+        xb, yb = get_batch(train_data, "train")
         if steps % eval_iters == 0:
             print(estimate_loss(model))
         logits, loss = model(xb, yb)

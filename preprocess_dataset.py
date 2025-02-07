@@ -33,4 +33,3 @@ with open("formatted_python_data.txt", "w") as f:
                         f.write(f"<s> {substring.strip()} </s>\n")
         except Exception as e:
             print(f"Error processing {filepath}: {e}")
-
