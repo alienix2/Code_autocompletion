@@ -1,31 +1,29 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from tokenizers import ByteLevelBPETokenizer
+from tokenizers import Tokenizer
 
-# Define constants
+# Hyperparameters
 BLOCK_SIZE = 256
 BATCH_SIZE = 32
-N_EMBD = 32
+N_EMBD = 64
 N_HEAD = 4
-N_LAYERS = 4
-DROPOUT = 0.4
-LEARNING_RATE = 5e-5
-CHUNK_SIZE = 1024 * 1024
+N_LAYERS = 6
+DROPOUT = 0.3
+LEARNING_RATE = 1e-4
+CHUNK_SIZE = 1024 * 51200
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 def load_data(file_path, tokenizer):
-    encoded_ids = []
     with open(file_path, "r") as f:
         while True:
             chunk = f.read(CHUNK_SIZE)
             if not chunk:
                 break
             encoded_chunk = tokenizer.encode(chunk)
-            encoded_ids.extend(encoded_chunk.ids)
-    return torch.tensor(encoded_ids)
+            yield torch.tensor(encoded_chunk.ids)
 
 
 def split_data(data):
@@ -86,7 +84,7 @@ class FeedForward(nn.Module):
         super().__init__()
         self.net = nn.Sequential(
             nn.Linear(n_embd, n_embd * 4),
-            nn.ReLU(),
+            nn.GELU(),
             nn.Linear(n_embd * 4, n_embd),
             nn.Dropout(DROPOUT),
         )
@@ -151,11 +149,10 @@ class BigramLanguageModel(nn.Module):
         return idx
 
 
-def train_model(
-    data_path, vocab_path, merges_path, save_path, max_iters=10000, eval_iters=100
-):
-    tokenizer = ByteLevelBPETokenizer(vocab_path, merges_path)
-    data = load_data(data_path, tokenizer)
+def train_model(data_path, tokenizer_path, save_path, max_iters=10000, eval_iters=100):
+    # Load the tokenizer
+    tokenizer = Tokenizer.from_file(tokenizer_path)
+    data = torch.cat(list(load_data(data_path, tokenizer)))
     train_data, val_data = split_data(data)
 
     def estimate_loss(model):

@@ -4,9 +4,9 @@ import os
 MAX_CHAR_LENGTH = 1000
 MIN_CHAR_LENGTH = 10
 
-# Collect all Python file paths in the 'repos' directory
+# Collect all Python file paths in the 'repos_150k' directory
 full_paths = []
-for dirpath, dirnames, filenames in os.walk("repos"):
+for dirpath, dirnames, filenames in os.walk("repos_150k"):
     for filename in filenames:
         if filename.endswith(".py"):
             full_path = os.path.join(dirpath, filename)
@@ -20,17 +20,17 @@ with open("formatted_python_data.txt", "w") as f:
                 data = file.read()
 
                 if MIN_CHAR_LENGTH <= len(data) <= MAX_CHAR_LENGTH:
-                    f.write(data + "\n")
+                    f.write(f"<s> {data} </s>\n")
                 else:
                     substrings = data.split("\n\n")
                     substring = ""
                     for split in substrings:
                         substring += split + "\n\n"
                         if MIN_CHAR_LENGTH < len(substring) < MAX_CHAR_LENGTH:
-                            f.write(substring + "\n")
+                            f.write(f"<s> {substring.strip()} </s>\n")
                             substring = ""
                     if MIN_CHAR_LENGTH < len(substring) < MAX_CHAR_LENGTH:
-                        f.write(substring + "\n")
+                        f.write(f"<s> {substring.strip()} </s>\n")
         except Exception as e:
             print(f"Error processing {filepath}: {e}")
 
