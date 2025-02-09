@@ -1,10 +1,15 @@
 import transformer
 from tokenizers import ByteLevelBPETokenizer
+from tokenizers.processors import TemplateProcessing
 import torch
 import argparse
 
 tokenizer = ByteLevelBPETokenizer(
-    "python_tokenizer-vocab.json", "python_tokenizer-merges.txt"
+    "python_simple_tokenizer-vocab.json", "python_simple_tokenizer-merges.txt"
+)
+tokenizer.add_special_tokens(["<s>", "</s>"])
+tokenizer.post_processor = TemplateProcessing(
+    single="<s> $A", special_tokens=[("<s>", 0)]
 )
 
 if torch.cuda.is_available():
@@ -14,7 +19,7 @@ else:
 
 model = transformer.BigramLanguageModel(tokenizer.get_vocab_size()).to(device)
 
-model.load_state_dict(torch.load("downloaded_dataset.pth", map_location=device))
+model.load_state_dict(torch.load("python_simple_model.pth", map_location=device))
 model.eval()
 
 if __name__ == "__main__":
@@ -24,7 +29,10 @@ if __name__ == "__main__":
 
     with torch.no_grad():
         input_ids = tokenizer.encode(args.text).ids
+        print(input_ids)
         input_tensor = torch.tensor([input_ids], dtype=torch.long, device=device)
-        generate_ids = model.generate(input_tensor, max_new_tokens=100)
-        generated_text = tokenizer.decode(generate_ids[0].tolist())
+        generate_ids = model.generate(input_tensor, max_new_tokens=256, end_token_id=1)
+        generated_text = tokenizer.decode(
+            generate_ids[0].tolist(), skip_special_tokens=True
+        )
         print(generated_text)

@@ -3,17 +3,15 @@ import torch.nn as nn
 import torch.nn.functional as F
 from tokenizers import ByteLevelBPETokenizer
 
-# Define constants
 BLOCK_SIZE = 256
 BATCH_SIZE = 32
-N_EMBD = 32
-N_HEAD = 4
-N_LAYERS = 4
+N_EMBD = 64
+N_HEAD = 8
+N_LAYERS = 6
 DROPOUT = 0.4
 LEARNING_RATE = 5e-5
 CHUNK_SIZE = 1024 * 51200
 
-# Check device availability
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
@@ -82,7 +80,8 @@ class FeedForward(nn.Module):
         super().__init__()
         self.net = nn.Sequential(
             nn.Linear(n_embd, n_embd * 4),
-            nn.ReLU(),
+            # nn.ReLU(),
+            nn.GELU(),
             nn.Linear(n_embd * 4, n_embd),
             nn.Dropout(DROPOUT),
         )
@@ -136,13 +135,17 @@ class BigramLanguageModel(nn.Module):
 
         return logits, loss
 
-    def generate(self, idx, max_new_tokens):
+    def generate(self, idx, max_new_tokens, end_token_id):
         for _ in range(max_new_tokens):
             idx_cond = idx[:, -BLOCK_SIZE:]
-            logits, loss = self(idx)
+            logits, loss = self(idx_cond)
             logits = logits[:, -1, :]
             probs = F.softmax(logits, dim=-1)
             idx_next = torch.multinomial(probs, num_samples=1)
+
+            if idx_next == end_token_id:
+                break
+
             idx = torch.cat((idx, idx_next), dim=1)
         return idx
 
@@ -151,6 +154,7 @@ def train_model(
     data_path, vocab_path, merges_path, save_path, max_iters=10000, eval_iters=100
 ):
     tokenizer = ByteLevelBPETokenizer(vocab_path, merges_path)
+    tokenizer.add_special_tokens(["<s>", "</s>"])
     data_iter = load_data(data_path, tokenizer)
     data = torch.cat(list(data_iter))
     train_data, val_data = split_data(data)
