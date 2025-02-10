@@ -3,13 +3,13 @@ import torch.nn as nn
 import torch.nn.functional as F
 from tokenizers import ByteLevelBPETokenizer
 
-BLOCK_SIZE = 256
+BLOCK_SIZE = 32
 BATCH_SIZE = 32
 N_EMBD = 64
 N_HEAD = 8
 N_LAYERS = 6
-DROPOUT = 0.4
-LEARNING_RATE = 5e-5
+DROPOUT = 0.3
+LEARNING_RATE = 3e-4
 CHUNK_SIZE = 1024 * 51200
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -174,27 +174,15 @@ def train_model(
 
     model = BigramLanguageModel(tokenizer.get_vocab_size()).to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=LEARNING_RATE)
-    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
-        optimizer, "min", patience=10, factor=0.5
-    )
 
-    best_val_loss = float("inf")
     for steps in range(max_iters):
         xb, yb = get_batch(train_data, "train")
+        if steps % eval_iters == 0:
+            print(estimate_loss(model))
         logits, loss = model(xb, yb)
         optimizer.zero_grad(set_to_none=True)
         loss.backward()
         optimizer.step()
-        scheduler.step(loss)
 
-        if steps % eval_iters == 0:
-            losses = estimate_loss(model)
-            print(
-                f"Step {steps}, Train Loss: {losses['train']}, Val Loss: {losses['val']}"
-            )
-            if losses["val"] < best_val_loss:
-                best_val_loss = losses["val"]
-                torch.save(model.state_dict(), save_path)
-                print(f"Model saved at step {steps}")
-
+    torch.save(model.state_dict(), save_path)
     return model, tokenizer
