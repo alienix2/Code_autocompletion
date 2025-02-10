@@ -1,0 +1,943 @@
+<s> x = 10
+y = 20
+z = x + y
+print("The sum is:", z) </s>
+<s> age = 18
+if age >= 18:
+    print("You are an adult.")
+else:
+    print("You are a minor.") </s>
+<s> for i in range(5):
+    print("Number:", i) </s>
+<s> count = 5
+while count > 0:
+    print("Count:", count)
+    count -= 1 </s>
+<s> def square(n):
+    return n * n
+result = square(4)
+print("Square of 4 is:", result) </s>
+<s> numbers = [1, 2, 3, 4, 5]
+sum_numbers = 0
+for num in numbers:
+    sum_numbers += num
+print("Sum of numbers:", sum_numbers) </s>
+<s> person = {"name": "Alice", "age": 25, "city": "New York"}
+print(person["name"], "is", person["age"], "years old.") </s>
+<s> first_name = "John"
+last_name = "Doe"
+full_name = first_name + " " + last_name
+print("Full name:", full_name) </s>
+<s> name = input("Enter your name: ")
+print("Hello,", name) </s>
+<s> a = 10
+b = 3
+print("Addition:", a + b)
+print("Subtraction:", a - b)
+print("Multiplication:", a * b)
+print("Division:", a / b)
+print("Modulus:", a % b) </s>
+<s> num = 7
+if num % 2 == 0:
+    print(num, "is even.")
+else:
+    print(num, "is odd.") </s>
+<s> def max_of_two(a, b):
+    if a > b:
+        return a
+    else:
+        return b </s>
+<s> print("Max of 10 and 20 is:", max_of_two(10, 20)) </s>
+<s> text = "hello"
+reversed_text = text[::-1]
+print("Reversed text:", reversed_text) </s>
+<s> def is_palindrome(s):
+    return s == s[::-1] </s>
+<s> print("Is 'racecar' a palindrome?", is_palindrome("racecar")) </s>
+<s> even_numbers = [x for x in range(10) if x % 2 == 0]
+print("Even numbers:", even_numbers) </s>
+<s> class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age </s>
+<s> def greet(self):
+        print(f"Hello, my name is {self.name} and I am {self.age} years old.")
+person = Person("Alice", 30)
+person.greet() </s>
+<s> with open("example.txt", "w") as file:
+    file.write("Hello, world!") </s>
+<s> with open("example.txt", "r") as file:
+    content = file.read()
+    print(content) </s>
+<s> try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero!") </s>
+<s> my_tuple = (1, 2, 3, 4)
+print(my_tuple[1]) </s>
+<s> my_set = {1, 2, 3, 4, 5}
+my_set.add(6)
+print(my_set) </s>
+<s> numbers = [1, 2, 3, 4, 5]
+squared_numbers = list(map(lambda x: x * x, numbers))
+print(squared_numbers) </s>
+<s> even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print(even_numbers) </s>
+<s> sum_numbers = 0
+for num in numbers:
+    sum_numbers += num
+print(sum_numbers) </s>
+<s> multiply = lambda x, y: x * y
+print(multiply(5, 3)) </s>
+<s> for i in range(3):
+    for j in range(3):
+        print(f"i={i}, j={j}") </s>
+<s> def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1) </s>
+<s> print("Factorial of 5 is:", factorial(5)) </s>
+<s> my_list = [1, 2, 3, 4, 5]
+print(my_list[1:4]) </s>
+<s> squared_numbers = {x: x * x for x in range(5)}
+print(squared_numbers) </s>
+<s> class Animal:
+    def __init__(self, name, species):
+        self.name = name
+        self.species = species
+    def make_sound(self):
+        print(f"The {self.species} named {self.name} makes a sound.")
+dog = Animal("Rex", "dog")
+dog.make_sound() </s>
+<s> fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")
+print(fruits)
+fruits.remove("banana")
+print(fruits) </s>
+<s> greeting = "Hello, {}. Welcome to {}."
+print(greeting.format("Alice", "Wonderland")) </s>
+<s> students = {"Alice": {"age": 25, "grade": "A"}, "Bob": {"age": 22, "grade": "B"}}
+print(students["Alice"]["grade"]) </s>
+<s> a, b = b, a
+print("a:", a, "b:", b) </s>
+<s> my_list = list(range(10))
+print(my_list[2:5])
+print(my_list[:4])
+print(my_list[6:])
+print(my_list[::2])
+print(my_list[::-1]) </s>
+<s> squared_even_numbers = [x * x for x in range(10) if x % 2 == 0]
+print(squared_even_numbers) </s>
+<s> matrix = [[j for j in range(5)] for i in range(3)]
+print(matrix) </s>
+<s> squared_numbers_dict = {x: x * x for x in range(10) if x % 2 == 0}
+print(squared_numbers_dict) </s>
+<s> dict1 = {"a": 1, "b": 2}
+dict2 = {"b": 3, "c": 4}
+merged_dict = {**dict1, **dict2}
+print(merged_dict) </s>
+<s> max_value = max([1, 2, 3, 4, 5])
+print("Max value:", max_value) </s>
+<s> min_value = min([1, 2, 3, 4, 5])
+print("Min value:", min_value) </s>
+<s> total = sum([1, 2, 3, 4, 5])
+print("Total sum:", total) </s>
+<s> reversed_list = [1, 2, 3, 4, 5][::-1]
+print("Reversed list:", reversed_list) </s>
+<s> squares = [x * x for x in range(10)]
+print("Squares:", squares) </s>
+<s> print(3 in [1, 2, 3, 4, 5]) </s>
+<s> list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+concatenated_list = list1 + list2
+print("Concatenated list:", concatenated_list) </s>
+<s> repeated_list = [1, 2, 3] * 3
+print("Repeated list:", repeated_list) </s>
+<s> print("Length of list:", len([1, 2, 3, 4, 5])) </s>
+<s> print("First element:", [1, 2, 3, 4, 5][0])
+print("Last element:", [1, 2, 3, 4, 5][-1]) </s>
+<s> my_list = [1, 2, 3, 4, 5]
+my_list[0] = 10
+print("Modified list:", my_list) </s>
+<s> del my_list[0]
+print("List after deletion:", my_list) </s>
+<s> my_list.insert(0, 1)
+print("List after insertion:", my_list) </s>
+<s> popped_element = my_list.pop()
+print("Popped element:", popped_element)
+print("List after popping:", my_list) </s>
+<s> my_list.clear()
+print("List after clearing:", my_list) </s>
+<s> x = 30
+y = 40
+z = x + y
+print("The sum is:", z) </s>
+<s> age = 16
+if age >= 18:
+    print("You are an adult.")
+else:
+    print("You are a minor.") </s>
+<s> for i in range(10):
+    print("Number:", i) </s>
+<s> count = 3
+while count > 0:
+    print("Count:", count)
+    count -= 1 </s>
+<s> def cube(n):
+    return n * n * n
+result = cube(3)
+print("Cube of 3 is:", result) </s>
+<s> numbers = [6, 7, 8, 9, 10]
+sum_numbers = 0
+for num in numbers:
+    sum_numbers += num
+print("Sum of numbers:", sum_numbers) </s>
+<s> person = {"name": "Bob", "age": 30, "city": "San Francisco"}
+print(person["name"], "is", person["age"], "years old.") </s>
+<s> first_name = "Jane"
+last_name = "Smith"
+full_name = first_name + " " + last_name
+print("Full name:", full_name) </s>
+<s> name = input("Enter your name: ")
+print("Hello,", name) </s>
+<s> a = 15
+b = 5
+print("Addition:", a + b)
+print("Subtraction:", a - b)
+print("Multiplication:", a * b)
+print("Division:", a / b)
+print("Modulus:", a % b) </s>
+<s> num = 9
+if num % 2 == 0:
+    print(num, "is even.")
+else:
+    print(num, "is odd.") </s>
+<s> def min_of_two(a, b):
+    if a < b:
+        return a
+    else:
+        return b
+print("Min of 10 and 20 is:", min_of_two(10, 20)) </s>
+<s> text = "world"
+reversed_text = text[::-1]
+print("Reversed text:", reversed_text) </s>
+<s> def is_palindrome(s):
+    return s == s[::-1]
+print("Is 'level' a palindrome?", is_palindrome("level")) </s>
+<s> odd_numbers = [x for x in range(10) if x % 2 != 0]
+print("Odd numbers:", odd_numbers) </s>
+<s> class Car:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model </s>
+<s> def display(self):
+        print(f"This car is a {self.make} {self.model}.")
+car = Car("Toyota", "Corolla")
+car.display() </s>
+<s> with open("sample.txt", "w") as file:
+    file.write("Sample text") </s>
+<s> with open("sample.txt", "r") as file:
+    content = file.read()
+    print(content) </s>
+<s> try:
+    result = int("abc")
+except ValueError:
+    print("Invalid number!") </s>
+<s> my_tuple = (5, 10, 15, 20)
+print(my_tuple[2]) </s>
+<s> my_set = {10, 20, 30, 40, 50}
+my_set.add(60)
+print(my_set) </s>
+<s> numbers = [10, 20, 30, 40, 50]
+cubed_numbers = list(map(lambda x: x**3, numbers))
+print(cubed_numbers) </s>
+<s> odd_numbers = list(filter(lambda x: x % 2 != 0, numbers))
+print(odd_numbers) </s>
+<s> sum_numbers = 0
+for num in numbers:
+    sum_numbers += num
+print(sum_numbers) </s>
+<s> multiply = lambda x, y: x * y
+print(multiply(6, 4)) </s>
+<s> for i in range(4):
+    for j in range(4):
+        print(f"i={i}, j={j}") </s>
+<s> def power(base, exp):
+    if exp == 0:
+        return 1
+    else:
+        return base * power(base, exp - 1)
+print("2 to the power of 3 is:", power(2, 3)) </s>
+<s> my_list = [2, 4, 6, 8, 10]
+print(my_list[1:3]) </s>
+<s> squared_numbers = {x: x**2 for x in range(5)}
+print(squared_numbers) </s>
+<s> class Student:
+    def __init__(self, name, grade):
+        self.name = name
+        self.grade = grade </s>
+<s> def display(self):
+        print(f"Student {self.name} has grade {self.grade}.")
+student = Student("Alice", "A")
+student.display() </s>
+<s> fruits = ["mango", "pineapple", "grape"]
+fruits.append("kiwi")
+print(fruits)
+fruits.remove("pineapple")
+print(fruits) </s>
+<s> message = "Hello, {}. Welcome to {}."
+print(message.format("Bob", "Python")) </s>
+<s> employees = {
+    "Alice": {"age": 28, "position": "Manager"},
+    "Bob": {"age": 24, "position": "Developer"},
+}
+print(employees["Bob"]["position"]) </s>
+<s> a, b = b, a
+print("a:", a, "b:", b) </s>
+<s> my_list = list(range(20))
+print(my_list[5:10])
+print(my_list[:5])
+print(my_list[15:])
+print(my_list[::3])
+print(my_list[::-2]) </s>
+<s> cubed_numbers = [x**3 for x in range(15) if x % 3 == 0]
+print(cubed_numbers) </s>
+<s> matrix = [[i * j for j in range(5)] for i in range(5)]
+print(matrix) </s>
+<s> cubed_numbers_dict = {x: x**3 for x in range(10) if x % 3 == 0}
+print(cubed_numbers_dict) </s>
+<s> dict1 = {"x": 10, "y": 20}
+dict2 = {"y": 30, "z": 40}
+merged_dict = {**dict1, **dict2}
+print(merged_dict) </s>
+<s> max_value = max([10, 20, 30, 40, 50])
+print("Max value:", max_value) </s>
+<s> min_value = min([10, 20, 30, 40, 50])
+print("Min value:", min_value) </s>
+<s> total = sum([10, 20, 30, 40, 50])
+print("Total sum:", total) </s>
+<s> reversed_list = [10, 20, 30, 40, 50][::-1]
+print("Reversed list:", reversed_list) </s>
+<s> cubes = [x**3 for x in range(10)]
+print("Cubes:", cubes) </s>
+<s> print(20 in [10, 20, 30, 40, 50]) </s>
+<s> list1 = [5, 10, 15]
+list2 = [20, 25, 30]
+concatenated_list = list1 + list2
+print("Concatenated list:", concatenated_list) </s>
+<s> repeated_list = [5, 10, 15] * 2
+print("Repeated list:", repeated_list) </s>
+<s> print("Length of list:", len([5, 10, 15, 20, 25])) </s>
+<s> print("First element:", [5, 10, 15, 20, 25][0])
+print("Last element:", [5, 10, 15, 20, 25][-1]) </s>
+<s> my_list = [5, 10, 15, 20, 25]
+my_list[1] = 12
+print("Modified list:", my_list) </s>
+<s> del my_list[1]
+print("List after deletion:", my_list) </s>
+<s> my_list.insert(1, 10)
+print("List after insertion:", my_list) </s>
+<s> popped_element = my_list.pop()
+print("Popped element:", popped_element)
+print("List after popping:", my_list) </s>
+<s> my_list.clear()
+print("List after clearing:", my_list) </s>
+<s> courses = {
+    "Math": {"Teacher": "Mr. Smith", "Students": ["John", "Alice", "Bob"]},
+    "Science": {"Teacher": "Mrs. Johnson", "Students": ["Mike", "Sara", "Tom"]},
+}
+print("Math teacher:", courses["Math"]["Teacher"]) </s>
+<s> default_dict = {}
+default_dict["a"] = default_dict.get("a", 0) + 1
+print("Default dictionary:", default_dict) </s>
+<s> items = ["apple", "banana", "cherry"]
+indexed_items = list(enumerate(items))
+print("Indexed items:", indexed_items) </s>
+<s> keys = ["one", "two", "three"]
+values = [1, 2, 3]
+combined_dict = dict(zip(keys, values))
+print("Combined dictionary:", combined_dict) </s>
+<s> counter = 1
+print("Next counter value:", counter)
+counter += 2
+print("Next counter value:", counter) </s>
+<s> numbers = [1, 3, 5, 7, 9, 2, 4, 6, 8, 0]
+largest = sorted(numbers)[-3:]
+smallest = sorted(numbers)[:3]
+print("Three largest numbers:", largest)
+print("Three smallest numbers:", smallest) </s>
+<s> def multiply(x, y):
+    return x * y </s>
+<s> double = lambda y: multiply(2, y)
+print("Double 5:", double(5)) </s>
+<s> elements = ["a", "b", "c", "a", "b", "a"]
+counter = {}
+for element in elements:
+    if element in counter:
+        counter[element] += 1
+    else:
+        counter[element] = 1
+print("Element frequencies:", counter) </s>
+<s> iterable1 = [1, 2, 3]
+iterable2 = ["a", "b", "c"]
+combined = iterable1 + iterable2
+print("Chained iterable:", combined) </s>
+<s> Point = lambda x, y: (x, y)
+point = Point(1, 2)
+print("Point:", point) </s>
+<s> deq = [1, 2, 3]
+deq.append(4)
+deq.insert(0, 0)
+print("Deque after append:", deq)
+deq.pop()
+deq.pop(0)
+print("Deque after pop:", deq) </s>
+<s> dict1 = {"a": 1, "b": 2}
+dict2 = {"b": 3, "c": 4}
+combined_dict = {**dict1, **dict2}
+print("Combined dictionary:", combined_dict) </s>
+<s> arr = [1, 2, 3, 4, 5]
+print("Array:", arr) </s>
+<s> sorted_list = [1, 3, 4, 7]
+sorted_list.insert(2, 5)
+print("Sorted list after insertion:", sorted_list)
+print("Position of 5 in sorted list:", sorted_list.index(5)) </s>
+<s> cycle_iterator = ["A", "B", "C"]
+print("Next cycle value:", cycle_iterator[0])
+print("Next cycle value:", cycle_iterator[1]) </s>
+<s> numbers = [1, 2, 3, 4]
+product = 1
+for number in numbers:
+    product *= number
+print("Product of list:", product) </s>
+<s> def fibonacci(n):
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+print("Fibonacci of 6 is:", fibonacci(6)) </s>
+<s> x = 50
+y = 70
+z = x + y
+print("The sum is:", z) </s>
+<s> age = 21
+if age >= 18:
+    print("You are an adult.")
+else:
+    print("You are a minor.") </s>
+<s> for i in range(7):
+    print("Number:", i) </s>
+<s> count = 7
+while count > 0:
+    print("Count:", count)
+    count -= 1 </s>
+<s> def square_root(n):
+    return n ** 0.5
+result = square_root(16)
+print("Square root of 16 is:", result) </s>
+<s> numbers = [10, 20, 30, 40, 50]
+sum_numbers = 0
+for num in numbers:
+    sum_numbers += num
+print("Sum of numbers:", sum_numbers) </s>
+<s> person = {"name": "Charlie", "age": 35, "city": "Los Angeles"}
+print(person["name"], "is", person["age"], "years old.") </s>
+<s> first_name = "Emily"
+last_name = "Clark"
+full_name = first_name + " " + last_name
+print("Full name:", full_name) </s>
+<s> name = input("Enter your name: ")
+print("Hello,", name) </s>
+<s> a = 25
+b = 5
+print("Addition:", a + b)
+print("Subtraction:", a - b)
+print("Multiplication:", a * b)
+print("Division:", a / b)
+print("Modulus:", a % b) </s>
+<s> num = 12
+if num % 2 == 0:
+    print(num, "is even.")
+else:
+    print(num, "is odd.") </s>
+<s> def max_of_three(a, b, c):
+    if a > b and a > c:
+        return a
+    elif b > a and b > c:
+        return b
+    else:
+        return c
+print("Max of 10, 20, and 30 is:", max_of_three(10, 20, 30)) </s>
+<s> text = "python"
+reversed_text = text[::-1]
+print("Reversed text:", reversed_text) </s>
+<s> def is_palindrome(s):
+    return s == s[::-1]
+print("Is 'madam' a palindrome?", is_palindrome("madam")) </s>
+<s> prime_numbers = [x for x in range(20) if all(x % y != 0 for y in range(2, x))]
+print("Prime numbers:", prime_numbers) </s>
+<s> class Dog:
+    def __init__(self, name, breed):
+        self.name = name
+        self.breed = breed </s>
+<s> def bark(self):
+        print(f"The {self.breed} named {self.name} barks.")
+dog = Dog("Buddy", "Golden Retriever")
+dog.bark() </s>
+<s> with open("data.txt", "w") as file:
+    file.write("Data example") </s>
+<s> with open("data.txt", "r") as file:
+    content = file.read()
+    print(content) </s>
+<s> try:
+    result = int("123")
+    print("Valid number!")
+except ValueError:
+    print("Invalid number!") </s>
+<s> my_tuple = (10, 20, 30, 40)
+print(my_tuple[2]) </s>
+<s> my_set = {100, 200, 300, 400}
+my_set.add(500)
+print(my_set) </s>
+<s> numbers = [100, 200, 300, 400, 500]
+squared_numbers = list(map(lambda x: x * x, numbers))
+print(squared_numbers) </s>
+<s> even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print(even_numbers) </s>
+<s> sum_numbers = 0
+for num in numbers:
+    sum_numbers += num
+print(sum_numbers) </s>
+<s> multiply = lambda x, y: x * y
+print(multiply(7, 8)) </s>
+<s> for i in range(2):
+    for j in range(2):
+        print(f"i={i}, j={j}") </s>
+<s> def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+print("Factorial of 6 is:", factorial(6)) </s>
+<s> my_list = [10, 20, 30, 40, 50]
+print(my_list[1:4]) </s>
+<s> squared_numbers = {x: x * x for x in range(10)}
+print(squared_numbers) </s>
+<s> class Cat:
+    def __init__(self, name, color):
+        self.name = name
+        self.color = color </s>
+<s> def meow(self):
+        print(f"The {self.color} cat named {self.name} meows.")
+cat = Cat("Whiskers", "black")
+cat.meow() </s>
+<s> fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")
+print(fruits)
+fruits.remove("banana")
+print(fruits) </s>
+<s> greeting = "Hello, {}. Welcome to {}."
+print(greeting.format("Charlie", "Python")) </s>
+<s> students = {"Alice": {"age": 25, "grade": "A"}, "Bob": {"age": 22, "grade": "B"}}
+print(students["Bob"]["grade"]) </s>
+<s> a, b = b, a
+print("a:", a, "b:", b) </s>
+<s> my_list = list(range(20))
+print(my_list[5:10])
+print(my_list[:5])
+print(my_list[15:])
+print(my_list[::3])
+print(my_list[::-2]) </s>
+<s> squared_even_numbers = [x * x for x in range(20) if x % 2 == 0]
+print(squared_even_numbers) </s>
+<s> matrix = [[j for j in range(5)] for i in range(3)]
+print(matrix) </s>
+<s> squared_numbers_dict = {x: x * x for x in range(20) if x % 2 == 0}
+print(squared_numbers_dict) </s>
+<s> dict1 = {"a": 1, "b": 2}
+dict2 = {"b": 3, "c": 4}
+merged_dict = {**dict1, **dict2}
+print(merged_dict) </s>
+<s> max_value = max([10, 20, 30, 40, 50])
+print("Max value:", max_value) </s>
+<s> min_value = min([10, 20, 30, 40, 50])
+print("Min value:", min_value) </s>
+<s> total = sum([10, 20, 30, 40, 50])
+print("Total sum:", total) </s>
+<s> reversed_list = [10, 20, 30, 40, 50][::-1]
+print("Reversed list:", reversed_list) </s>
+<s> squares = [x * x for x in range(20)]
+print("Squares:", squares) </s>
+<s> print(30 in [10, 20, 30, 40, 50]) </s>
+<s> list1 = [5, 10, 15]
+list2 = [20, 25, 30]
+concatenated_list = list1 + list2
+print("Concatenated list:", concatenated_list) </s>
+<s> repeated_list = [5, 10, 15] * 2
+print("Repeated list:", repeated_list) </s>
+<s> print("Length of list:", len([5, 10, 15, 20, 25])) </s>
+<s> print("First element:", [5, 10, 15, 20, 25][0])
+print("Last element:", [5, 10, 15, 20, 25][-1]) </s>
+<s> my_list = [5, 10, 15, 20, 25]
+my_list[0] = 10
+print("Modified list:", my_list) </s>
+<s> del my_list[0]
+print("List after deletion:", my_list) </s>
+<s> my_list.insert(0, 5)
+print("List after insertion:", my_list) </s>
+<s> popped_element = my_list.pop()
+print("Popped element:", popped_element)
+print("List after popping:", my_list) </s>
+<s> my_list.clear()
+print("List after clearing:", my_list) </s>
+<s> a = 15
+b = 25
+c = a + b
+print("The total is:", c) </s>
+<s> user_age = 17
+if user_age >= 18:
+    print("You are eligible to vote.")
+else:
+    print("You are not eligible to vote.") </s>
+<s> for num in range(3):
+    print("Current number:", num) </s>
+<s> counter = 4
+while counter > 0:
+    print("Counter value:", counter)
+    counter -= 1 </s>
+<s> def cube_root(n):
+    return n ** (1/3)
+output = cube_root(27)
+print("Cube root of 27 is:", output) </s>
+<s> values = [5, 10, 15, 20, 25]
+total_sum = 0
+for value in values:
+    total_sum += value
+print("Total sum of values:", total_sum) </s>
+<s> employee = {"name": "John", "age": 28, "department": "Engineering"}
+print(employee["name"], "works in", employee["department"]) </s>
+<s> first = "Sarah"
+last = "Johnson"
+full = first + " " + last
+print("Full name:", full) </s>
+<s> username = input("Enter your username: ")
+print("Welcome,", username) </s>
+<s> x = 12
+y = 4
+print("Sum:", x + y)
+print("Difference:", x - y)
+print("Product:", x * y)
+print("Quotient:", x / y)
+print("Remainder:", x % y) </s>
+<s> number = 14
+if number % 2 == 0:
+    print(number, "is even.")
+else:
+    print(number, "is odd.") </s>
+<s> def min_of_three(a, b, c):
+    if a < b and a < c:
+        return a
+    elif b < a and b < c:
+        return b
+    else:
+        return c
+print("Min of 15, 10, and 20 is:", min_of_three(15, 10, 20)) </s>
+<s> word = "programming"
+reversed_word = word[::-1]
+print("Reversed word:", reversed_word) </s>
+<s> def is_palindrome(s):
+    return s == s[::-1]
+print("Is 'noon' a palindrome?", is_palindrome("noon")) </s>
+<s> multiples_of_three = [x for x in range(20) if x % 3 == 0]
+print("Multiples of three:", multiples_of_three) </s>
+<s> class Bird:
+    def __init__(self, name, species):
+        self.name = name
+        self.species = species </s>
+<s> def chirp(self):
+        print(f"The {self.species} named {self.name} chirps.")
+bird = Bird("Tweety", "Canary")
+bird.chirp() </s>
+<s> with open("notes.txt", "w") as file:
+    file.write("This is a note.") </s>
+<s> with open("notes.txt", "r") as file:
+    content = file.read()
+    print(content) </s>
+<s> try:
+    result = 100 / 0
+except ZeroDivisionError:
+    print("Division by zero is not allowed.") </s>
+<s> my_tuple = (15, 25, 35, 45)
+print(my_tuple[1]) </s>
+<s> my_set = {1000, 2000, 3000}
+my_set.add(4000)
+print(my_set) </s>
+<s> numbers = [1000, 2000, 3000, 4000]
+squared = list(map(lambda x: x ** 2, numbers))
+print("Squared numbers:", squared) </s>
+<s> odd_numbers = list(filter(lambda x: x % 2 != 0, numbers))
+print("Odd numbers:", odd_numbers) </s>
+<s> total = 0
+for num in numbers:
+    total += num
+print("Total:", total) </s>
+<s> multiply = lambda x, y: x * y
+print("Product of 9 and 7:", multiply(9, 7)) </s>
+<s> for i in range(2):
+    for j in range(2):
+        print(f"i={i}, j={j}") </s>
+<s> def power(base, exponent):
+    if exponent == 0:
+        return 1
+    else:
+        return base * power(base, exponent - 1)
+print("3 to the power of 4 is:", power(3, 4)) </s>
+<s> my_list = [11, 22, 33, 44, 55]
+print(my_list[2:4]) </s>
+<s> cubed_numbers = {x: x ** 3 for x in range(10)}
+print("Cubed numbers:", cubed_numbers) </s>
+<s> class Vehicle:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model </s>
+<s> def display(self):
+        print(f"This vehicle is a {self.make} {self.model}.")
+vehicle = Vehicle("Ford", "Mustang")
+vehicle.display() </s>
+<s> fruits = ["apple", "banana", "cherry"]
+fruits.append("grape")
+print(fruits)
+fruits.remove("banana")
+print(fruits) </s>
+<s> message = "Hi, {}. Welcome to {}."
+print(message.format("John", "Programming")) </s>
+<s> employees = {
+    "Alice": {"age": 30, "position": "Manager"},
+    "Bob": {"age": 25, "position": "Developer"},
+}
+print(employees["Alice"]["position"]) </s>
+<s> x, y = y, x
+print("x:", x, "y:", y) </s>
+<s> my_list = list(range(30))
+print(my_list[10:15])
+print(my_list[:10])
+print(my_list[20:])
+print(my_list[::5])
+print(my_list[::-3]) </s>
+<s> squared_odd_numbers = [x ** 2 for x in range(20) if x % 2 != 0]
+print("Squared odd numbers:", squared_odd_numbers) </s>
+<s> matrix = [[i + j for j in range(4)] for i in range(4)]
+print(matrix) </s>
+<s> cubed_odd_numbers = {x: x ** 3 for x in range(20) if x % 2 != 0}
+print("Cubed odd numbers:", cubed_odd_numbers) </s>
+<s> dict1 = {"x": 100, "y": 200}
+dict2 = {"y": 300, "z": 400}
+merged = {**dict1, **dict2}
+print("Merged dictionary:", merged) </s>
+<s> max_val = max([100, 200, 300, 400, 500])
+print("Max value:", max_val) </s>
+<s> min_val = min([100, 200, 300, 400, 500])
+print("Min value:", min_val) </s>
+<s> total_sum = sum([100, 200, 300, 400, 500])
+print("Total sum:", total_sum) </s>
+<s> reversed_list = [100, 200, 300, 400, 500][::-1]
+print("Reversed list:", reversed_list) </s>
+<s> cubes = [x ** 3 for x in range(10)]
+print("Cubes:", cubes) </s>
+<s> print(50 in [10, 20, 30, 40, 50]) </s>
+<s> list1 = [15, 25, 35]
+list2 = [45, 55, 65]
+combined = list1 + list2
+print("Combined list:", combined) </s>
+<s> repeated = [15, 25, 35] * 2
+print("Repeated list:", repeated) </s>
+<s> print("Length of list:", len([15, 25, 35, 45, 55])) </s>
+<s> print("First element:", [15, 25, 35, 45, 55][0])
+print("Last element:", [15, 25, 35, 45, 55][-1]) </s>
+<s> my_list = [15, 25, 35, 45, 55]
+my_list[1] = 30
+print("Modified list:", my_list) </s>
+<s> del my_list[1]
+print("List after deletion:", my_list) </s>
+<s> my_list.insert(1, 25)
+print("List after insertion:", my_list) </s>
+<s> popped = my_list.pop()
+print("Popped element:", popped)
+print("List after popping:", my_list) </s>
+<s> my_list.clear()
+print("List after clearing:", my_list) </s>
+<s> p = 100
+q = 200
+r = p + q
+print("The result is:", r) </s>
+<s> user_age = 22
+if user_age >= 21:
+    print("You are allowed to enter.")
+else:
+    print("You are not allowed to enter.") </s>
+<s> for i in range(6):
+    print("Iteration:", i) </s>
+<s> timer = 5
+while timer > 0:
+    print("Time left:", timer)
+    timer -= 1 </s>
+<s> def square(n):
+    return n ** 2
+result = square(9)
+print("Square of 9 is:", result) </s>
+<s> data = [3, 6, 9, 12, 15]
+total = 0
+for item in data:
+    total += item
+print("Total of data:", total) </s>
+<s> profile = {"name": "Emma", "age": 24, "city": "Chicago"}
+print(profile["name"], "lives in", profile["city"]) </s>
+<s> first_name = "Michael"
+last_name = "Brown"
+full_name = first_name + " " + last_name
+print("Full name:", full_name) </s>
+<s> user = input("Enter your username: ")
+print("Hello,", user) </s>
+<s> m = 20
+n = 5
+print("Sum:", m + n)
+print("Difference:", m - n)
+print("Product:", m * n)
+print("Quotient:", m / n)
+print("Remainder:", m % n) </s>
+<s> value = 17
+if value % 2 == 0:
+    print(value, "is even.")
+else:
+    print(value, "is odd.") </s>
+<s> def max_of_four(a, b, c, d):
+    return max(a, b, c, d)
+print("Max of 10, 20, 30, 40 is:", max_of_four(10, 20, 30, 40)) </s>
+<s> text = "algorithm"
+reversed_text = text[::-1]
+print("Reversed text:", reversed_text) </s>
+<s> def is_palindrome(s):
+    return s == s[::-1]
+print("Is 'deified' a palindrome?", is_palindrome("deified")) </s>
+<s> multiples_of_five = [x for x in range(50) if x % 5 == 0]
+print("Multiples of five:", multiples_of_five) </s>
+<s> class Fish:
+    def __init__(self, name, species):
+        self.name = name
+        self.species = species </s>
+<s> def swim(self):
+        print(f"The {self.species} named {self.name} is swimming.")
+fish = Fish("Nemo", "Clownfish")
+fish.swim() </s>
+<s> with open("log.txt", "w") as file:
+    file.write("Log entry.") </s>
+<s> with open("log.txt", "r") as file:
+    content = file.read()
+    print(content) </s>
+<s> try:
+    result = int("456")
+    print("Valid integer!")
+except ValueError:
+    print("Invalid integer!") </s>
+<s> my_tuple = (50, 100, 150, 200)
+print(my_tuple[2]) </s>
+<s> my_set = {500, 1000, 1500}
+my_set.add(2000)
+print(my_set) </s>
+<s> numbers = [500, 1000, 1500, 2000]
+squared = list(map(lambda x: x ** 2, numbers))
+print("Squared numbers:", squared) </s>
+<s> even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print("Even numbers:", even_numbers) </s>
+<s> total = 0
+for num in numbers:
+    total += num
+print("Total:", total) </s>
+<s> multiply = lambda x, y: x * y
+print("Product of 8 and 9:", multiply(8, 9)) </s>
+<s> for i in range(3):
+    for j in range(3):
+        print(f"i={i}, j={j}") </s>
+<s> def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+print("Factorial of 7 is:", factorial(7)) </s>
+<s> my_list = [10, 20, 30, 40, 50]
+print(my_list[1:3]) </s>
+<s> cubed_numbers = {x: x ** 3 for x in range(10)}
+print("Cubed numbers:", cubed_numbers) </s>
+<s> class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author </s>
+<s> def display(self):
+        print(f"The book '{self.title}' is written by {self.author}.")
+book = Book("1984", "George Orwell")
+book.display() </s>
+<s> fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")
+print(fruits)
+fruits.remove("banana")
+print(fruits) </s>
+<s> greeting = "Hello, {}. Welcome to {}."
+print(greeting.format("Emma", "Library")) </s>
+<s> employees = {
+    "Alice": {"age": 30, "position": "Manager"},
+    "Bob": {"age": 25, "position": "Developer"},
+}
+print(employees["Bob"]["position"]) </s>
+<s> a, b = b, a
+print("a:", a, "b:", b) </s>
+<s> my_list = list(range(50))
+print(my_list[10:20])
+print(my_list[:10])
+print(my_list[40:])
+print(my_list[::10])
+print(my_list[::-5]) </s>
+<s> squared_even_numbers = [x ** 2 for x in range(50) if x % 2 == 0]
+print("Squared even numbers:", squared_even_numbers) </s>
+<s> matrix = [[i * j for j in range(5)] for i in range(5)]
+print(matrix) </s>
+<s> cubed_even_numbers = {x: x ** 3 for x in range(50) if x % 2 == 0}
+print("Cubed even numbers:", cubed_even_numbers) </s>
+<s> dict1 = {"a": 1, "b": 2}
+dict2 = {"b": 3, "c": 4}
+merged = {**dict1, **dict2}
+print("Merged dictionary:", merged) </s>
+<s> max_val = max([100, 200, 300, 400, 500])
+print("Max value:", max_val) </s>
+<s> min_val = min([100, 200, 300, 400, 500])
+print("Min value:", min_val) </s>
+<s> total_sum = sum([100, 200, 300, 400, 500])
+print("Total sum:", total_sum) </s>
+<s> reversed_list = [100, 200, 300, 400, 500][::-1]
+print("Reversed list:", reversed_list) </s>
+<s> cubes = [x ** 3 for x in range(10)]
+print("Cubes:", cubes) </s>
+<s> print(100 in [10, 20, 30, 40, 50]) </s>
+<s> list1 = [15, 25, 35]
+list2 = [45, 55, 65]
+combined = list1 + list2
+print("Combined list:", combined) </s>
+<s> repeated = [15, 25, 35] * 2
+print("Repeated list:", repeated) </s>
+<s> print("Length of list:", len([15, 25, 35, 45, 55])) </s>
+<s> print("First element:", [15, 25, 35, 45, 55][0])
+print("Last element:", [15, 25, 35, 45, 55][-1]) </s>
+<s> my_list = [15, 25, 35, 45, 55]
+my_list[1] = 30
+print("Modified list:", my_list) </s>
+<s> del my_list[1]
+print("List after deletion:", my_list) </s>
+<s> my_list.insert(1, 25)
+print("List after insertion:", my_list) </s>
+<s> popped = my_list.pop()
+print("Popped element:", popped)
+print("List after popping:", my_list) </s>
+<s> my_list.clear()
+print("List after clearing:", my_list) </s>

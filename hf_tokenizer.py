@@ -1,6 +1,6 @@
 from tokenizers import ByteLevelBPETokenizer
 
-formatted_data_file = "formatted_python_data.txt"
+formatted_data_file = "formatted_simple_python_data.txt"
 
 tokenizer = ByteLevelBPETokenizer()
 
@@ -11,4 +11,4 @@ tokenizer.train(
     special_tokens=["<s>", "</s>"],
 )
 
-tokenizer.save_model(".", "python_tokenizer")
+tokenizer.save_model(".", "python_simple_tokenizer")

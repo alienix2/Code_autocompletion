@@ -17,11 +17,8 @@ while count > 0:
     print("Count:", count)
     count -= 1
 
-
 def square(n):
     return n * n
-
-
 result = square(4)
 print("Square of 4 is:", result)
 
@@ -80,503 +77,1180 @@ print("Is 'racecar' a palindrome?", is_palindrome("racecar"))
 even_numbers = [x for x in range(10) if x % 2 == 0]
 print("Even numbers:", even_numbers)
 
-x1 = 15
-y1 = 25
-z1 = x1 + y1
-print("The sum is:", z1)
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
-age1 = 16
-if age1 >= 18:
+    def greet(self):
+        print(f"Hello, my name is {self.name} and I am {self.age} years old.")
+person = Person("Alice", 30)
+person.greet()
+
+with open("example.txt", "w") as file:
+    file.write("Hello, world!")
+
+with open("example.txt", "r") as file:
+    content = file.read()
+    print(content)
+
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+
+my_tuple = (1, 2, 3, 4)
+print(my_tuple[1])
+
+my_set = {1, 2, 3, 4, 5}
+my_set.add(6)
+print(my_set)
+
+numbers = [1, 2, 3, 4, 5]
+squared_numbers = list(map(lambda x: x * x, numbers))
+print(squared_numbers)
+
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print(even_numbers)
+
+sum_numbers = 0
+for num in numbers:
+    sum_numbers += num
+print(sum_numbers)
+
+multiply = lambda x, y: x * y
+print(multiply(5, 3))
+
+for i in range(3):
+    for j in range(3):
+        print(f"i={i}, j={j}")
+
+
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+
+print("Factorial of 5 is:", factorial(5))
+
+my_list = [1, 2, 3, 4, 5]
+print(my_list[1:4])
+
+squared_numbers = {x: x * x for x in range(5)}
+print(squared_numbers)
+
+
+class Animal:
+    def __init__(self, name, species):
+        self.name = name
+        self.species = species
+    def make_sound(self):
+        print(f"The {self.species} named {self.name} makes a sound.")
+dog = Animal("Rex", "dog")
+dog.make_sound()
+
+fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")
+print(fruits)
+fruits.remove("banana")
+print(fruits)
+
+greeting = "Hello, {}. Welcome to {}."
+print(greeting.format("Alice", "Wonderland"))
+
+students = {"Alice": {"age": 25, "grade": "A"}, "Bob": {"age": 22, "grade": "B"}}
+print(students["Alice"]["grade"])
+
+a, b = b, a
+print("a:", a, "b:", b)
+
+my_list = list(range(10))
+print(my_list[2:5])
+print(my_list[:4])
+print(my_list[6:])
+print(my_list[::2])
+print(my_list[::-1])
+
+squared_even_numbers = [x * x for x in range(10) if x % 2 == 0]
+print(squared_even_numbers)
+
+matrix = [[j for j in range(5)] for i in range(3)]
+print(matrix)
+
+squared_numbers_dict = {x: x * x for x in range(10) if x % 2 == 0}
+print(squared_numbers_dict)
+
+dict1 = {"a": 1, "b": 2}
+dict2 = {"b": 3, "c": 4}
+merged_dict = {**dict1, **dict2}
+print(merged_dict)
+
+max_value = max([1, 2, 3, 4, 5])
+print("Max value:", max_value)
+
+min_value = min([1, 2, 3, 4, 5])
+print("Min value:", min_value)
+
+total = sum([1, 2, 3, 4, 5])
+print("Total sum:", total)
+
+reversed_list = [1, 2, 3, 4, 5][::-1]
+print("Reversed list:", reversed_list)
+
+squares = [x * x for x in range(10)]
+print("Squares:", squares)
+
+print(3 in [1, 2, 3, 4, 5])
+
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+concatenated_list = list1 + list2
+print("Concatenated list:", concatenated_list)
+
+repeated_list = [1, 2, 3] * 3
+print("Repeated list:", repeated_list)
+
+print("Length of list:", len([1, 2, 3, 4, 5]))
+
+print("First element:", [1, 2, 3, 4, 5][0])
+print("Last element:", [1, 2, 3, 4, 5][-1])
+
+my_list = [1, 2, 3, 4, 5]
+my_list[0] = 10
+print("Modified list:", my_list)
+
+del my_list[0]
+print("List after deletion:", my_list)
+
+my_list.insert(0, 1)
+print("List after insertion:", my_list)
+
+popped_element = my_list.pop()
+print("Popped element:", popped_element)
+print("List after popping:", my_list)
+
+my_list.clear()
+print("List after clearing:", my_list)
+
+x = 30
+y = 40
+z = x + y
+print("The sum is:", z)
+
+age = 16
+if age >= 18:
     print("You are an adult.")
 else:
     print("You are a minor.")
 
-for j in range(3):
-    print("Number:", j)
+for i in range(10):
+    print("Number:", i)
 
-count1 = 3
-while count1 > 0:
-    print("Count:", count1)
-    count1 -= 1
+count = 3
+while count > 0:
+    print("Count:", count)
+    count -= 1
 
-result1 = square(5)
-print("Square of 5 is:", result1)
 
-numbers1 = [6, 7, 8, 9, 10]
-sum_numbers1 = 0
-for num in numbers1:
-    sum_numbers1 += num
-print("Sum of numbers:", sum_numbers1)
+def cube(n):
+    return n * n * n
+result = cube(3)
+print("Cube of 3 is:", result)
 
-person1 = {"name": "Bob", "age": 30, "city": "Los Angeles"}
-print(person1["name"], "is", person1["age"], "years old.")
+numbers = [6, 7, 8, 9, 10]
+sum_numbers = 0
+for num in numbers:
+    sum_numbers += num
+print("Sum of numbers:", sum_numbers)
 
-first_name1 = "Jane"
-last_name1 = "Smith"
-full_name1 = first_name1 + " " + last_name1
-print("Full name:", full_name1)
+person = {"name": "Bob", "age": 30, "city": "San Francisco"}
+print(person["name"], "is", person["age"], "years old.")
 
-name1 = input("Enter your name: ")
-print("Hello,", name1)
+first_name = "Jane"
+last_name = "Smith"
+full_name = first_name + " " + last_name
+print("Full name:", full_name)
 
-a1 = 12
-b1 = 4
-print("Addition:", a1 + b1)
-print("Subtraction:", a1 - b1)
-print("Multiplication:", a1 * b1)
-print("Division:", a1 / b1)
-print("Modulus:", a1 % b1)
+name = input("Enter your name: ")
+print("Hello,", name)
 
-num1 = 8
-if num1 % 2 == 0:
-    print(num1, "is even.")
+a = 15
+b = 5
+print("Addition:", a + b)
+print("Subtraction:", a - b)
+print("Multiplication:", a * b)
+print("Division:", a / b)
+print("Modulus:", a % b)
+
+num = 9
+if num % 2 == 0:
+    print(num, "is even.")
 else:
-    print(num1, "is odd.")
+    print(num, "is odd.")
 
-max1 = max_of_two(15, 25)
-print("Max of 15 and 25 is:", max1)
 
-text1 = "world"
-reversed_text1 = text1[::-1]
-print("Reversed text:", reversed_text1)
+def min_of_two(a, b):
+    if a < b:
+        return a
+    else:
+        return b
+print("Min of 10 and 20 is:", min_of_two(10, 20))
 
+text = "world"
+reversed_text = text[::-1]
+print("Reversed text:", reversed_text)
+
+def is_palindrome(s):
+    return s == s[::-1]
+print("Is 'level' a palindrome?", is_palindrome("level"))
+
+odd_numbers = [x for x in range(10) if x % 2 != 0]
+print("Odd numbers:", odd_numbers)
+
+
+class Car:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+
+    def display(self):
+        print(f"This car is a {self.make} {self.model}.")
+car = Car("Toyota", "Corolla")
+car.display()
+
+with open("sample.txt", "w") as file:
+    file.write("Sample text")
+
+with open("sample.txt", "r") as file:
+    content = file.read()
+    print(content)
+
+try:
+    result = int("abc")
+except ValueError:
+    print("Invalid number!")
+
+my_tuple = (5, 10, 15, 20)
+print(my_tuple[2])
+
+my_set = {10, 20, 30, 40, 50}
+my_set.add(60)
+print(my_set)
+
+numbers = [10, 20, 30, 40, 50]
+cubed_numbers = list(map(lambda x: x**3, numbers))
+print(cubed_numbers)
+
+odd_numbers = list(filter(lambda x: x % 2 != 0, numbers))
+print(odd_numbers)
+
+sum_numbers = 0
+for num in numbers:
+    sum_numbers += num
+print(sum_numbers)
+
+multiply = lambda x, y: x * y
+print(multiply(6, 4))
+
+for i in range(4):
+    for j in range(4):
+        print(f"i={i}, j={j}")
+
+
+def power(base, exp):
+    if exp == 0:
+        return 1
+    else:
+        return base * power(base, exp - 1)
+print("2 to the power of 3 is:", power(2, 3))
+
+my_list = [2, 4, 6, 8, 10]
+print(my_list[1:3])
+
+squared_numbers = {x: x**2 for x in range(5)}
+print(squared_numbers)
+
+
+class Student:
+    def __init__(self, name, grade):
+        self.name = name
+        self.grade = grade
+
+    def display(self):
+        print(f"Student {self.name} has grade {self.grade}.")
+student = Student("Alice", "A")
+student.display()
+
+fruits = ["mango", "pineapple", "grape"]
+fruits.append("kiwi")
+print(fruits)
+fruits.remove("pineapple")
+print(fruits)
+
+message = "Hello, {}. Welcome to {}."
+print(message.format("Bob", "Python"))
+
+employees = {
+    "Alice": {"age": 28, "position": "Manager"},
+    "Bob": {"age": 24, "position": "Developer"},
+}
+print(employees["Bob"]["position"])
+
+a, b = b, a
+print("a:", a, "b:", b)
+
+my_list = list(range(20))
+print(my_list[5:10])
+print(my_list[:5])
+print(my_list[15:])
+print(my_list[::3])
+print(my_list[::-2])
+
+cubed_numbers = [x**3 for x in range(15) if x % 3 == 0]
+print(cubed_numbers)
+
+matrix = [[i * j for j in range(5)] for i in range(5)]
+print(matrix)
+
+cubed_numbers_dict = {x: x**3 for x in range(10) if x % 3 == 0}
+print(cubed_numbers_dict)
+
+dict1 = {"x": 10, "y": 20}
+dict2 = {"y": 30, "z": 40}
+merged_dict = {**dict1, **dict2}
+print(merged_dict)
+
+max_value = max([10, 20, 30, 40, 50])
+print("Max value:", max_value)
+
+min_value = min([10, 20, 30, 40, 50])
+print("Min value:", min_value)
+
+total = sum([10, 20, 30, 40, 50])
+print("Total sum:", total)
+
+reversed_list = [10, 20, 30, 40, 50][::-1]
+print("Reversed list:", reversed_list)
+
+cubes = [x**3 for x in range(10)]
+print("Cubes:", cubes)
+
+print(20 in [10, 20, 30, 40, 50])
+
+list1 = [5, 10, 15]
+list2 = [20, 25, 30]
+concatenated_list = list1 + list2
+print("Concatenated list:", concatenated_list)
+
+repeated_list = [5, 10, 15] * 2
+print("Repeated list:", repeated_list)
+
+print("Length of list:", len([5, 10, 15, 20, 25]))
+
+print("First element:", [5, 10, 15, 20, 25][0])
+print("Last element:", [5, 10, 15, 20, 25][-1])
+
+my_list = [5, 10, 15, 20, 25]
+my_list[1] = 12
+print("Modified list:", my_list)
+
+del my_list[1]
+print("List after deletion:", my_list)
+
+my_list.insert(1, 10)
+print("List after insertion:", my_list)
+
+popped_element = my_list.pop()
+print("Popped element:", popped_element)
+print("List after popping:", my_list)
+
+my_list.clear()
+print("List after clearing:", my_list)
+
+courses = {
+    "Math": {"Teacher": "Mr. Smith", "Students": ["John", "Alice", "Bob"]},
+    "Science": {"Teacher": "Mrs. Johnson", "Students": ["Mike", "Sara", "Tom"]},
+}
+print("Math teacher:", courses["Math"]["Teacher"])
+
+default_dict = {}
+default_dict["a"] = default_dict.get("a", 0) + 1
+print("Default dictionary:", default_dict)
+
+items = ["apple", "banana", "cherry"]
+indexed_items = list(enumerate(items))
+print("Indexed items:", indexed_items)
+
+keys = ["one", "two", "three"]
+values = [1, 2, 3]
+combined_dict = dict(zip(keys, values))
+print("Combined dictionary:", combined_dict)
+
+counter = 1
+print("Next counter value:", counter)
+counter += 2
+print("Next counter value:", counter)
+
+numbers = [1, 3, 5, 7, 9, 2, 4, 6, 8, 0]
+largest = sorted(numbers)[-3:]
+smallest = sorted(numbers)[:3]
+print("Three largest numbers:", largest)
+print("Three smallest numbers:", smallest)
+
+
+def multiply(x, y):
+    return x * y
+
+
+double = lambda y: multiply(2, y)
+print("Double 5:", double(5))
+
+elements = ["a", "b", "c", "a", "b", "a"]
+counter = {}
+for element in elements:
+    if element in counter:
+        counter[element] += 1
+    else:
+        counter[element] = 1
+print("Element frequencies:", counter)
+
+iterable1 = [1, 2, 3]
+iterable2 = ["a", "b", "c"]
+combined = iterable1 + iterable2
+print("Chained iterable:", combined)
+
+Point = lambda x, y: (x, y)
+point = Point(1, 2)
+print("Point:", point)
+
+deq = [1, 2, 3]
+deq.append(4)
+deq.insert(0, 0)
+print("Deque after append:", deq)
+deq.pop()
+deq.pop(0)
+print("Deque after pop:", deq)
+
+dict1 = {"a": 1, "b": 2}
+dict2 = {"b": 3, "c": 4}
+combined_dict = {**dict1, **dict2}
+print("Combined dictionary:", combined_dict)
+
+arr = [1, 2, 3, 4, 5]
+print("Array:", arr)
+
+sorted_list = [1, 3, 4, 7]
+sorted_list.insert(2, 5)
+print("Sorted list after insertion:", sorted_list)
+print("Position of 5 in sorted list:", sorted_list.index(5))
+
+cycle_iterator = ["A", "B", "C"]
+print("Next cycle value:", cycle_iterator[0])
+print("Next cycle value:", cycle_iterator[1])
+
+numbers = [1, 2, 3, 4]
+product = 1
+for number in numbers:
+    product *= number
+print("Product of list:", product)
+
+def fibonacci(n):
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+print("Fibonacci of 6 is:", fibonacci(6))
+
+x = 50
+y = 70
+z = x + y
+print("The sum is:", z)
+
+age = 21
+if age >= 18:
+    print("You are an adult.")
+else:
+    print("You are a minor.")
+
+for i in range(7):
+    print("Number:", i)
+
+count = 7
+while count > 0:
+    print("Count:", count)
+    count -= 1
+
+def square_root(n):
+    return n ** 0.5
+result = square_root(16)
+print("Square root of 16 is:", result)
+
+numbers = [10, 20, 30, 40, 50]
+sum_numbers = 0
+for num in numbers:
+    sum_numbers += num
+print("Sum of numbers:", sum_numbers)
+
+person = {"name": "Charlie", "age": 35, "city": "Los Angeles"}
+print(person["name"], "is", person["age"], "years old.")
+
+first_name = "Emily"
+last_name = "Clark"
+full_name = first_name + " " + last_name
+print("Full name:", full_name)
+
+name = input("Enter your name: ")
+print("Hello,", name)
+
+a = 25
+b = 5
+print("Addition:", a + b)
+print("Subtraction:", a - b)
+print("Multiplication:", a * b)
+print("Division:", a / b)
+print("Modulus:", a % b)
+
+num = 12
+if num % 2 == 0:
+    print(num, "is even.")
+else:
+    print(num, "is odd.")
+
+def max_of_three(a, b, c):
+    if a > b and a > c:
+        return a
+    elif b > a and b > c:
+        return b
+    else:
+        return c
+print("Max of 10, 20, and 30 is:", max_of_three(10, 20, 30))
+
+text = "python"
+reversed_text = text[::-1]
+print("Reversed text:", reversed_text)
+
+def is_palindrome(s):
+    return s == s[::-1]
 print("Is 'madam' a palindrome?", is_palindrome("madam"))
 
-even_numbers1 = [x for x in range(20) if x % 2 == 0]
-print("Even numbers:", even_numbers1)
+prime_numbers = [x for x in range(20) if all(x % y != 0 for y in range(2, x))]
+print("Prime numbers:", prime_numbers)
 
-x2 = 20
-y2 = 30
-z2 = x2 + y2
-print("The sum is:", z2)
+class Dog:
+    def __init__(self, name, breed):
+        self.name = name
+        self.breed = breed
 
-age2 = 20
-if age2 >= 18:
-    print("You are an adult.")
+    def bark(self):
+        print(f"The {self.breed} named {self.name} barks.")
+dog = Dog("Buddy", "Golden Retriever")
+dog.bark()
+
+with open("data.txt", "w") as file:
+    file.write("Data example")
+
+with open("data.txt", "r") as file:
+    content = file.read()
+    print(content)
+
+try:
+    result = int("123")
+    print("Valid number!")
+except ValueError:
+    print("Invalid number!")
+
+my_tuple = (10, 20, 30, 40)
+print(my_tuple[2])
+
+my_set = {100, 200, 300, 400}
+my_set.add(500)
+print(my_set)
+
+numbers = [100, 200, 300, 400, 500]
+squared_numbers = list(map(lambda x: x * x, numbers))
+print(squared_numbers)
+
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print(even_numbers)
+
+sum_numbers = 0
+for num in numbers:
+    sum_numbers += num
+print(sum_numbers)
+
+multiply = lambda x, y: x * y
+print(multiply(7, 8))
+
+for i in range(2):
+    for j in range(2):
+        print(f"i={i}, j={j}")
+
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+print("Factorial of 6 is:", factorial(6))
+
+my_list = [10, 20, 30, 40, 50]
+print(my_list[1:4])
+
+squared_numbers = {x: x * x for x in range(10)}
+print(squared_numbers)
+
+class Cat:
+    def __init__(self, name, color):
+        self.name = name
+        self.color = color
+
+    def meow(self):
+        print(f"The {self.color} cat named {self.name} meows.")
+cat = Cat("Whiskers", "black")
+cat.meow()
+
+fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")
+print(fruits)
+fruits.remove("banana")
+print(fruits)
+
+greeting = "Hello, {}. Welcome to {}."
+print(greeting.format("Charlie", "Python"))
+
+students = {"Alice": {"age": 25, "grade": "A"}, "Bob": {"age": 22, "grade": "B"}}
+print(students["Bob"]["grade"])
+
+a, b = b, a
+print("a:", a, "b:", b)
+
+my_list = list(range(20))
+print(my_list[5:10])
+print(my_list[:5])
+print(my_list[15:])
+print(my_list[::3])
+print(my_list[::-2])
+
+squared_even_numbers = [x * x for x in range(20) if x % 2 == 0]
+print(squared_even_numbers)
+
+matrix = [[j for j in range(5)] for i in range(3)]
+print(matrix)
+
+squared_numbers_dict = {x: x * x for x in range(20) if x % 2 == 0}
+print(squared_numbers_dict)
+
+dict1 = {"a": 1, "b": 2}
+dict2 = {"b": 3, "c": 4}
+merged_dict = {**dict1, **dict2}
+print(merged_dict)
+
+max_value = max([10, 20, 30, 40, 50])
+print("Max value:", max_value)
+
+min_value = min([10, 20, 30, 40, 50])
+print("Min value:", min_value)
+
+total = sum([10, 20, 30, 40, 50])
+print("Total sum:", total)
+
+reversed_list = [10, 20, 30, 40, 50][::-1]
+print("Reversed list:", reversed_list)
+
+squares = [x * x for x in range(20)]
+print("Squares:", squares)
+
+print(30 in [10, 20, 30, 40, 50])
+
+list1 = [5, 10, 15]
+list2 = [20, 25, 30]
+concatenated_list = list1 + list2
+print("Concatenated list:", concatenated_list)
+
+repeated_list = [5, 10, 15] * 2
+print("Repeated list:", repeated_list)
+
+print("Length of list:", len([5, 10, 15, 20, 25]))
+
+print("First element:", [5, 10, 15, 20, 25][0])
+print("Last element:", [5, 10, 15, 20, 25][-1])
+
+my_list = [5, 10, 15, 20, 25]
+my_list[0] = 10
+print("Modified list:", my_list)
+
+del my_list[0]
+print("List after deletion:", my_list)
+
+my_list.insert(0, 5)
+print("List after insertion:", my_list)
+
+popped_element = my_list.pop()
+print("Popped element:", popped_element)
+print("List after popping:", my_list)
+
+my_list.clear()
+print("List after clearing:", my_list)
+
+a = 15
+b = 25
+c = a + b
+print("The total is:", c)
+
+user_age = 17
+if user_age >= 18:
+    print("You are eligible to vote.")
 else:
-    print("You are a minor.")
+    print("You are not eligible to vote.")
 
-for k in range(7):
-    print("Number:", k)
+for num in range(3):
+    print("Current number:", num)
 
-count2 = 7
-while count2 > 0:
-    print("Count:", count2)
-    count2 -= 1
+counter = 4
+while counter > 0:
+    print("Counter value:", counter)
+    counter -= 1
 
-result2 = square(6)
-print("Square of 6 is:", result2)
+def cube_root(n):
+    return n ** (1/3)
+output = cube_root(27)
+print("Cube root of 27 is:", output)
 
-numbers2 = [11, 12, 13, 14, 15]
-sum_numbers2 = 0
-for num in numbers2:
-    sum_numbers2 += num
-print("Sum of numbers:", sum_numbers2)
+values = [5, 10, 15, 20, 25]
+total_sum = 0
+for value in values:
+    total_sum += value
+print("Total sum of values:", total_sum)
 
-person2 = {"name": "Charlie", "age": 35, "city": "Chicago"}
-print(person2["name"], "is", person2["age"], "years old.")
+employee = {"name": "John", "age": 28, "department": "Engineering"}
+print(employee["name"], "works in", employee["department"])
 
-first_name2 = "Emily"
-last_name2 = "Johnson"
-full_name2 = first_name2 + " " + last_name2
-print("Full name:", full_name2)
+first = "Sarah"
+last = "Johnson"
+full = first + " " + last
+print("Full name:", full)
 
-name2 = input("Enter your name: ")
-print("Hello,", name2)
+username = input("Enter your username: ")
+print("Welcome,", username)
 
-a2 = 14
-b2 = 5
-print("Addition:", a2 + b2)
-print("Subtraction:", a2 - b2)
-print("Multiplication:", a2 * b2)
-print("Division:", a2 / b2)
-print("Modulus:", a2 % b2)
+x = 12
+y = 4
+print("Sum:", x + y)
+print("Difference:", x - y)
+print("Product:", x * y)
+print("Quotient:", x / y)
+print("Remainder:", x % y)
 
-num2 = 9
-if num2 % 2 == 0:
-    print(num2, "is even.")
+number = 14
+if number % 2 == 0:
+    print(number, "is even.")
 else:
-    print(num2, "is odd.")
-
-max2 = max_of_two(20, 30)
-print("Max of 20 and 30 is:", max2)
-
-text2 = "python"
-reversed_text2 = text2[::-1]
-print("Reversed text:", reversed_text2)
-
-print("Is 'level' a palindrome?", is_palindrome("level"))
-
-even_numbers2 = [x for x in range(30) if x % 2 == 0]
-print("Even numbers:", even_numbers2)
-
-x3 = 25
-y3 = 35
-z3 = x3 + y3
-print("The sum is:", z3)
-
-age3 = 21
-if age3 >= 18:
-    print("You are an adult.")
-else:
-    print("You are a minor.")
-
-for l in range(10):
-    print("Number:", l)
-
-count3 = 10
-while count3 > 0:
-    print("Count:", count3)
-    count3 -= 1
-
-result3 = square(7)
-print("Square of 7 is:", result3)
-
-numbers3 = [16, 17, 18, 19, 20]
-sum_numbers3 = 0
-for num in numbers3:
-    sum_numbers3 += num
-print("Sum of numbers:", sum_numbers3)
-
-person3 = {"name": "David", "age": 40, "city": "Houston"}
-print(person3["name"], "is", person3["age"], "years old.")
-
-first_name3 = "Michael"
-last_name3 = "Brown"
-full_name3 = first_name3 + " " + last_name3
-print("Full name:", full_name3)
-
-name3 = input("Enter your name: ")
-print("Hello,", name3)
-
-a3 = 16
-b3 = 6
-print("Addition:", a3 + b3)
-print("Subtraction:", a3 - b3)
-print("Multiplication:", a3 * b3)
-print("Division:", a3 / b3)
-print("Modulus:", a3 % b3)
-
-num3 = 10
-if num3 % 2 == 0:
-    print(num3, "is even.")
-else:
-    print(num3, "is odd.")
-
-max3 = max_of_two(25, 35)
-print("Max of 25 and 35 is:", max3)
-
-text3 = "java"
-reversed_text3 = text3[::-1]
-print("Reversed text:", reversed_text3)
-
-print("Is 'rotor' a palindrome?", is_palindrome("rotor"))
-
-even_numbers3 = [x for x in range(40) if x % 2 == 0]
-print("Even numbers:", even_numbers3)
-
-x4 = 30
-y4 = 40
-z4 = x4 + y4
-print("The sum is:", z4)
-
-age4 = 22
-if age4 >= 18:
-    print("You are an adult.")
-else:
-    print("You are a minor.")
-
-for m in range(8):
-    print("Number:", m)
-
-count4 = 8
-while count4 > 0:
-    print("Count:", count4)
-    count4 -= 1
-
-result4 = square(8)
-print("Square of 8 is:", result4)
-
-numbers4 = [21, 22, 23, 24, 25]
-sum_numbers4 = 0
-for num in numbers4:
-    sum_numbers4 += num
-print("Sum of numbers:", sum_numbers4)
-
-person4 = {"name": "Edward", "age": 45, "city": "Phoenix"}
-print(person4["name"], "is", person4["age"], "years old.")
-
-first_name4 = "Sarah"
-last_name4 = "Williams"
-full_name4 = first_name4 + " " + last_name4
-print("Full name:", full_name4)
-
-name4 = input("Enter your name: ")
-print("Hello,", name4)
-
-a4 = 18
-b4 = 7
-print("Addition:", a4 + b4)
-print("Subtraction:", a4 - b4)
-print("Multiplication:", a4 * b4)
-print("Division:", a4 / b4)
-print("Modulus:", a4 % b4)
-
-num4 = 11
-if num4 % 2 == 0:
-    print(num4, "is even.")
-else:
-    print(num4, "is odd.")
-
-max4 = max_of_two(30, 40)
-print("Max of 30 and 40 is:", max4)
-
-text4 = "golang"
-reversed_text4 = text4[::-1]
-print("Reversed text:", reversed_text4)
-
-print("Is 'deified' a palindrome?", is_palindrome("deified"))
-
-even_numbers4 = [x for x in range(50) if x % 2 == 0]
-print("Even numbers:", even_numbers4)
-
-x5 = 35
-y5 = 45
-z5 = x5 + y5
-print("The sum is:", z5)
-
-age5 = 23
-if age5 >= 18:
-    print("You are an adult.")
-else:
-    print("You are a minor.")
-
-for n in range(6):
-    print("Number:", n)
-
-count5 = 6
-while count5 > 0:
-    print("Count:", count5)
-    count5 -= 1
-
-result5 = square(9)
-print("Square of 9 is:", result5)
-
-numbers5 = [26, 27, 28, 29, 30]
-sum_numbers5 = 0
-for num in numbers5:
-    sum_numbers5 += num
-print("Sum of numbers:", sum_numbers5)
-
-person5 = {"name": "Frank", "age": 50, "city": "Philadelphia"}
-print(person5["name"], "is", person5["age"], "years old.")
-
-first_name5 = "Megan"
-last_name5 = "Jones"
-full_name5 = first_name5 + " " + last_name5
-print("Full name:", full_name5)
-
-name5 = input("Enter your name: ")
-print("Hello,", name5)
-
-a5 = 20
-b5 = 8
-print("Addition:", a5 + b5)
-print("Subtraction:", a5 - b5)
-print("Multiplication:", a5 * b5)
-print("Division:", a5 / b5)
-print("Modulus:", a5 % b5)
-
-num5 = 12
-if num5 % 2 == 0:
-    print(num5, "is even.")
-else:
-    print(num5, "is odd.")
-
-max5 = max_of_two(35, 45)
-print("Max of 35 and 45 is:", max5)
-
-text5 = "swift"
-reversed_text5 = text5[::-1]
-print("Reversed text:", reversed_text5)
-
-print("Is 'radar' a palindrome?", is_palindrome("radar"))
-
-even_numbers5 = [x for x in range(60) if x % 2 == 0]
-print("Even numbers:", even_numbers5)
-
-x6 = 40
-y6 = 50
-z6 = x6 + y6
-print("The sum is:", z6)
-
-age6 = 24
-if age6 >= 18:
-    print("You are an adult.")
-else:
-    print("You are a minor.")
-
-for o in range(9):
-    print("Number:", o)
-
-count6 = 9
-while count6 > 0:
-    print("Count:", count6)
-    count6 -= 1
-
-result6 = square(10)
-print("Square of 10 is:", result6)
-
-numbers6 = [31, 32, 33, 34, 35]
-sum_numbers6 = 0
-for num in numbers6:
-    sum_numbers6 += num
-print("Sum of numbers:", sum_numbers6)
-
-person6 = {"name": "Grace", "age": 55, "city": "San Antonio"}
-print(person6["name"], "is", person6["age"], "years old.")
-
-first_name6 = "Emma"
-last_name6 = "Miller"
-full_name6 = first_name6 + " " + last_name6
-print("Full name:", full_name6)
-
-name6 = input("Enter your name: ")
-print("Hello,", name6)
-
-a6 = 22
-b6 = 9
-print("Addition:", a6 + b6)
-print("Subtraction:", a6 - b6)
-print("Multiplication:", a6 * b6)
-print("Division:", a6 / b6)
-print("Modulus:", a6 % b6)
-
-num6 = 13
-if num6 % 2 == 0:
-    print(num6, "is even.")
-else:
-    print(num6, "is odd.")
-
-max6 = max_of_two(40, 50)
-print("Max of 40 and 50 is:", max6)
-
-text6 = "kotlin"
-reversed_text6 = text6[::-1]
-print("Reversed text:", reversed_text6)
-
-print("Is 'level' a palindrome?", is_palindrome("level"))
-
-even_numbers6 = [x for x in range(70) if x % 2 == 0]
-print("Even numbers:", even_numbers6)
-
-x7 = 45
-y7 = 55
-z7 = x7 + y7
-print("The sum is:", z7)
-
-age7 = 25
-if age7 >= 18:
-    print("You are an adult.")
-else:
-    print("You are a minor.")
-
-for p in range(12):
-    print("Number:", p)
-
-count7 = 12
-while count7 > 0:
-    print("Count:", count7)
-    count7 -= 1
-
-result7 = square(11)
-print("Square of 11 is:", result7)
-
-numbers7 = [36, 37, 38, 39, 40]
-sum_numbers7 = 0
-for num in numbers7:
-    sum_numbers7 += num
-print("Sum of numbers:", sum_numbers7)
-
-person7 = {"name": "Hank", "age": 60, "city": "San Diego"}
-print(person7["name"], "is", person7["age"], "years old.")
-
-first_name7 = "Sophia"
-last_name7 = "Davis"
-full_name7 = first_name7 + " " + last_name7
-print("Full name:", full_name7)
-
-name7 = input("Enter your name: ")
-print("Hello,", name7)
-
-a7 = 24
-b7 = 10
-print("Addition:", a7 + b7)
-print("Subtraction:", a7 - b7)
-print("Multiplication:", a7 * b7)
-print("Division:", a7 / b7)
-print("Modulus:", a7 % b7)
-
-num7 = 14
-if num7 % 2 == 0:
-    print(num7, "is even.")
-else:
-    print(num7, "is odd.")
-
-max7 = max_of_two(45, 55)
-print("Max of 45 and 55 is:", max7)
-
-text7 = "ruby"
-reversed_text7 = text7[::-1]
-print("Reversed text:", reversed_text7)
-
+    print(number, "is odd.")
+
+def min_of_three(a, b, c):
+    if a < b and a < c:
+        return a
+    elif b < a and b < c:
+        return b
+    else:
+        return c
+print("Min of 15, 10, and 20 is:", min_of_three(15, 10, 20))
+
+word = "programming"
+reversed_word = word[::-1]
+print("Reversed word:", reversed_word)
+
+def is_palindrome(s):
+    return s == s[::-1]
 print("Is 'noon' a palindrome?", is_palindrome("noon"))
 
-even_numbers7 = [x for x in range(80) if x % 2 == 0]
-print("Even numbers:", even_numbers7)
+multiples_of_three = [x for x in range(20) if x % 3 == 0]
+print("Multiples of three:", multiples_of_three)
 
-x8 = 50
-y8 = 60
-z8 = x8 + y8
-print("The sum is:", z8)
+class Bird:
+    def __init__(self, name, species):
+        self.name = name
+        self.species = species
 
-age8 = 26
-if age8 >= 18:
-    print("You are an adult.")
+    def chirp(self):
+        print(f"The {self.species} named {self.name} chirps.")
+bird = Bird("Tweety", "Canary")
+bird.chirp()
+
+with open("notes.txt", "w") as file:
+    file.write("This is a note.")
+
+with open("notes.txt", "r") as file:
+    content = file.read()
+    print(content)
+
+try:
+    result = 100 / 0
+except ZeroDivisionError:
+    print("Division by zero is not allowed.")
+
+my_tuple = (15, 25, 35, 45)
+print(my_tuple[1])
+
+my_set = {1000, 2000, 3000}
+my_set.add(4000)
+print(my_set)
+
+numbers = [1000, 2000, 3000, 4000]
+squared = list(map(lambda x: x ** 2, numbers))
+print("Squared numbers:", squared)
+
+odd_numbers = list(filter(lambda x: x % 2 != 0, numbers))
+print("Odd numbers:", odd_numbers)
+
+total = 0
+for num in numbers:
+    total += num
+print("Total:", total)
+
+multiply = lambda x, y: x * y
+print("Product of 9 and 7:", multiply(9, 7))
+
+for i in range(2):
+    for j in range(2):
+        print(f"i={i}, j={j}")
+
+def power(base, exponent):
+    if exponent == 0:
+        return 1
+    else:
+        return base * power(base, exponent - 1)
+print("3 to the power of 4 is:", power(3, 4))
+
+my_list = [11, 22, 33, 44, 55]
+print(my_list[2:4])
+
+cubed_numbers = {x: x ** 3 for x in range(10)}
+print("Cubed numbers:", cubed_numbers)
+
+class Vehicle:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+
+    def display(self):
+        print(f"This vehicle is a {self.make} {self.model}.")
+vehicle = Vehicle("Ford", "Mustang")
+vehicle.display()
+
+fruits = ["apple", "banana", "cherry"]
+fruits.append("grape")
+print(fruits)
+fruits.remove("banana")
+print(fruits)
+
+message = "Hi, {}. Welcome to {}."
+print(message.format("John", "Programming"))
+
+employees = {
+    "Alice": {"age": 30, "position": "Manager"},
+    "Bob": {"age": 25, "position": "Developer"},
+}
+print(employees["Alice"]["position"])
+
+x, y = y, x
+print("x:", x, "y:", y)
+
+my_list = list(range(30))
+print(my_list[10:15])
+print(my_list[:10])
+print(my_list[20:])
+print(my_list[::5])
+print(my_list[::-3])
+
+squared_odd_numbers = [x ** 2 for x in range(20) if x % 2 != 0]
+print("Squared odd numbers:", squared_odd_numbers)
+
+matrix = [[i + j for j in range(4)] for i in range(4)]
+print(matrix)
+
+cubed_odd_numbers = {x: x ** 3 for x in range(20) if x % 2 != 0}
+print("Cubed odd numbers:", cubed_odd_numbers)
+
+dict1 = {"x": 100, "y": 200}
+dict2 = {"y": 300, "z": 400}
+merged = {**dict1, **dict2}
+print("Merged dictionary:", merged)
+
+max_val = max([100, 200, 300, 400, 500])
+print("Max value:", max_val)
+
+min_val = min([100, 200, 300, 400, 500])
+print("Min value:", min_val)
+
+total_sum = sum([100, 200, 300, 400, 500])
+print("Total sum:", total_sum)
+
+reversed_list = [100, 200, 300, 400, 500][::-1]
+print("Reversed list:", reversed_list)
+
+cubes = [x ** 3 for x in range(10)]
+print("Cubes:", cubes)
+
+print(50 in [10, 20, 30, 40, 50])
+
+list1 = [15, 25, 35]
+list2 = [45, 55, 65]
+combined = list1 + list2
+print("Combined list:", combined)
+
+repeated = [15, 25, 35] * 2
+print("Repeated list:", repeated)
+
+print("Length of list:", len([15, 25, 35, 45, 55]))
+
+print("First element:", [15, 25, 35, 45, 55][0])
+print("Last element:", [15, 25, 35, 45, 55][-1])
+
+my_list = [15, 25, 35, 45, 55]
+my_list[1] = 30
+print("Modified list:", my_list)
+
+del my_list[1]
+print("List after deletion:", my_list)
+
+my_list.insert(1, 25)
+print("List after insertion:", my_list)
+
+popped = my_list.pop()
+print("Popped element:", popped)
+print("List after popping:", my_list)
+
+my_list.clear()
+print("List after clearing:", my_list)
+
+p = 100
+q = 200
+r = p + q
+print("The result is:", r)
+
+user_age = 22
+if user_age >= 21:
+    print("You are allowed to enter.")
 else:
-    print("You are a minor.")
+    print("You are not allowed to enter.")
 
-for q in range(15):
-    print("Number:", q)
+for i in range(6):
+    print("Iteration:", i)
 
-count8 = 15
-while count8 > 0:
-    print("Count:", count8)
-    count8 -= 1
+timer = 5
+while timer > 0:
+    print("Time left:", timer)
+    timer -= 1
 
-result8 = square(12)
-print("Square of 12 is:", result8)
+def square(n):
+    return n ** 2
+result = square(9)
+print("Square of 9 is:", result)
 
-numbers8 = [41, 42, 43, 44, 45]
-sum_numbers8 = 0
-for num in numbers8:
-    sum_numbers8 += num
-print("Sum of numbers:", sum_numbers8)
+data = [3, 6, 9, 12, 15]
+total = 0
+for item in data:
+    total += item
+print("Total of data:", total)
 
-person8 = {"name": "Ivy", "age": 65, "city": "Dallas"}
-print(person8["name"], "is", person8["age"], "years old.")
+profile = {"name": "Emma", "age": 24, "city": "Chicago"}
+print(profile["name"], "lives in", profile["city"])
 
-first_name8 = "Olivia"
-last_name8 = "Garcia"
-full_name8 = first_name8 + " " + last_name8
-print("Full name:", full_name8)
+first_name = "Michael"
+last_name = "Brown"
+full_name = first_name + " " + last_name
+print("Full name:", full_name)
 
-name8 = input("Enter your name: ")
-print("Hello,", name8)
+user = input("Enter your username: ")
+print("Hello,", user)
 
-a8 = 26
-b8 = 11
-print("Addition:", a8 + b8)
-print("Subtraction:", a8 - b8)
-print("Multiplication:", a8 * b8)
-print("Division:", a8 / b8)
+m = 20
+n = 5
+print("Sum:", m + n)
+print("Difference:", m - n)
+print("Product:", m * n)
+print("Quotient:", m / n)
+print("Remainder:", m % n)
+
+value = 17
+if value % 2 == 0:
+    print(value, "is even.")
+else:
+    print(value, "is odd.")
+
+def max_of_four(a, b, c, d):
+    return max(a, b, c, d)
+print("Max of 10, 20, 30, 40 is:", max_of_four(10, 20, 30, 40))
+
+text = "algorithm"
+reversed_text = text[::-1]
+print("Reversed text:", reversed_text)
+
+def is_palindrome(s):
+    return s == s[::-1]
+print("Is 'deified' a palindrome?", is_palindrome("deified"))
+
+multiples_of_five = [x for x in range(50) if x % 5 == 0]
+print("Multiples of five:", multiples_of_five)
+
+class Fish:
+    def __init__(self, name, species):
+        self.name = name
+        self.species = species
+
+    def swim(self):
+        print(f"The {self.species} named {self.name} is swimming.")
+fish = Fish("Nemo", "Clownfish")
+fish.swim()
+
+with open("log.txt", "w") as file:
+    file.write("Log entry.")
+
+with open("log.txt", "r") as file:
+    content = file.read()
+    print(content)
+
+try:
+    result = int("456")
+    print("Valid integer!")
+except ValueError:
+    print("Invalid integer!")
+
+my_tuple = (50, 100, 150, 200)
+print(my_tuple[2])
+
+my_set = {500, 1000, 1500}
+my_set.add(2000)
+print(my_set)
+
+numbers = [500, 1000, 1500, 2000]
+squared = list(map(lambda x: x ** 2, numbers))
+print("Squared numbers:", squared)
+
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print("Even numbers:", even_numbers)
+
+total = 0
+for num in numbers:
+    total += num
+print("Total:", total)
+
+multiply = lambda x, y: x * y
+print("Product of 8 and 9:", multiply(8, 9))
+
+for i in range(3):
+    for j in range(3):
+        print(f"i={i}, j={j}")
+
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+print("Factorial of 7 is:", factorial(7))
+
+my_list = [10, 20, 30, 40, 50]
+print(my_list[1:3])
+
+cubed_numbers = {x: x ** 3 for x in range(10)}
+print("Cubed numbers:", cubed_numbers)
+
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+
+    def display(self):
+        print(f"The book '{self.title}' is written by {self.author}.")
+book = Book("1984", "George Orwell")
+book.display()
+
+fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")
+print(fruits)
+fruits.remove("banana")
+print(fruits)
+
+greeting = "Hello, {}. Welcome to {}."
+print(greeting.format("Emma", "Library"))
+
+employees = {
+    "Alice": {"age": 30, "position": "Manager"},
+    "Bob": {"age": 25, "position": "Developer"},
+}
+print(employees["Bob"]["position"])
+
+a, b = b, a
+print("a:", a, "b:", b)
+
+my_list = list(range(50))
+print(my_list[10:20])
+print(my_list[:10])
+print(my_list[40:])
+print(my_list[::10])
+print(my_list[::-5])
+
+squared_even_numbers = [x ** 2 for x in range(50) if x % 2 == 0]
+print("Squared even numbers:", squared_even_numbers)
+
+matrix = [[i * j for j in range(5)] for i in range(5)]
+print(matrix)
+
+cubed_even_numbers = {x: x ** 3 for x in range(50) if x % 2 == 0}
+print("Cubed even numbers:", cubed_even_numbers)
+
+dict1 = {"a": 1, "b": 2}
+dict2 = {"b": 3, "c": 4}
+merged = {**dict1, **dict2}
+print("Merged dictionary:", merged)
+
+max_val = max([100, 200, 300, 400, 500])
+print("Max value:", max_val)
+
+min_val = min([100, 200, 300, 400, 500])
+print("Min value:", min_val)
+
+total_sum = sum([100, 200, 300, 400, 500])
+print("Total sum:", total_sum)
+
+reversed_list = [100, 200, 300, 400, 500][::-1]
+print("Reversed list:", reversed_list)
+
+cubes = [x ** 3 for x in range(10)]
+print("Cubes:", cubes)
+
+print(100 in [10, 20, 30, 40, 50])
+
+list1 = [15, 25, 35]
+list2 = [45, 55, 65]
+combined = list1 + list2
+print("Combined list:", combined)
+
+repeated = [15, 25, 35] * 2
+print("Repeated list:", repeated)
+
+print("Length of list:", len([15, 25, 35, 45, 55]))
+
+print("First element:", [15, 25, 35, 45, 55][0])
+print("Last element:", [15, 25, 35, 45, 55][-1])
+
+my_list = [15, 25, 35, 45, 55]
+my_list[1] = 30
+print("Modified list:", my_list)
+
+del my_list[1]
+print("List after deletion:", my_list)
+
+my_list.insert(1, 25)
+print("List after insertion:", my_list)
+
+popped = my_list.pop()
+print("Popped element:", popped)
+print("List after popping:", my_list)
+
+my_list.clear()
+print("List after clearing:", my_list)

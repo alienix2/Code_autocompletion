@@ -6,14 +6,14 @@ MIN_CHAR_LENGTH = 10
 
 # Collect all Python file paths in the 'repos_150k' directory
 full_paths = []
-for dirpath, dirnames, filenames in os.walk("repos_150k"):
+for dirpath, dirnames, filenames in os.walk("simple_files"):
     for filename in filenames:
         if filename.endswith(".py"):
             full_path = os.path.join(dirpath, filename)
             full_paths.append(full_path)
 
 # Open the output file
-with open("formatted_python_data.txt", "w") as f:
+with open("formatted_simple_python_data.txt", "w") as f:
     for filepath in full_paths:
         try:
             with open(filepath, "r") as file:

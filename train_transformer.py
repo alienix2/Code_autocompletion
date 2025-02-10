@@ -1,7 +1,7 @@
 from transformer import train_model
 import torch
 
-data_path = "formatted_simple_python.txt"
+data_path = "formatted_simple_python_data.txt"
 vocab_path = "python_simple_tokenizer-vocab.json"
 merges_path = "python_simple_tokenizer-merges.txt"
 save_path = "python_simple_model.pth"
@@ -10,7 +10,6 @@ model, tokenizer = train_model(
     data_path, vocab_path, merges_path, save_path, max_iters=10000
 )
 
-# Generate some text starting from 0
 device = model.token_embedding_table.weight.device
 print(
     tokenizer.decode(
