@@ -5,7 +5,8 @@ import torch
 import argparse
 
 tokenizer = ByteLevelBPETokenizer(
-    "python_simple_tokenizer-vocab.json", "python_simple_tokenizer-merges.txt"
+    "python_tokenizer_no_sentences-vocab.json",
+    "python_tokenizer_no_sentences-merges.txt",
 )
 tokenizer.add_special_tokens(["<s>", "</s>"])
 tokenizer.post_processor = TemplateProcessing(
@@ -19,7 +20,9 @@ else:
 
 model = transformer.BigramLanguageModel(tokenizer.get_vocab_size()).to(device)
 
-model.load_state_dict(torch.load("python_simple_model.pth", map_location=device))
+model.load_state_dict(
+    torch.load("python_model_no_sentences_128_context.pth", map_location=device)
+)
 model.eval()
 
 if __name__ == "__main__":
