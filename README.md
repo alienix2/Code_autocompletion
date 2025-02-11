@@ -38,6 +38,8 @@ The tokenizer chosen is a BPE tokenizer. There are multiple tokenizers each of o
 
 All these tokenizers are obtained using the `hf_tokenizer.py` that relies on libraries provided in the `tokenizer` library of huggingface. Another theoretical script called `hand_made_tokenizer.py` is a very simple example of implementation of a BPE tokenizer that proved to be way too slow to be used for the project.
 
+All the tokenizers are realized with a vocabulary size of 10000. Other size proved to be very hard to test with the hardware I had but could be more effective.
+
 ## Models
 
 There are three kind of models, based on the dataset and tokenizers used to train them:
