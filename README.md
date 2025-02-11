@@ -2,8 +2,14 @@
 
 ## Structure of the repository
 
-All the scripts are in the root of the repository.
-Other than those, all the models, tokenizers, processed_datasets, and the `simple` datasets are in the respective folders.
+All the scripts, models, tokenizers, processed_datasets, and the `simple` datasets are in the respective folders.
+
+## Scripts
+
+Most of the scripts present variables for the user to change in order to use them. Look inside the single script for the specifics. The choice to not use command line parameters instead was given by the necessity to run the files easily on a jupyter notebook.
+The only file that also requires inputs to be passed as a command line argument is `predict.py` that takes in input the string to start the prediction.
+In the **Models** section of this README there is a description of the hyperparameters to be used with the models.
+At the end of the file there is a description on how to use the scripts for a specific use case as a reference.
 
 ## Unused scripts
 

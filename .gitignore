@@ -1,5 +1,4 @@
 /token.txt
 150k/
 repos_150k/
-/formatted_python_data.txt
-/formatted_python_data_no_sentences.txt
+processed_datasets/
