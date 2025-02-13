@@ -8,7 +8,7 @@ tokenizer.train(
     files=[formatted_data_file],
     vocab_size=10000,
     min_frequency=2,
-    special_tokens=["<s>", "</s>", "<file_start>", "<file_end>"],
+    special_tokens=["<s>", "</s>"],
 )
 
 tokenizer.save_model("tokenizers", "python_tokenizer_be_file")

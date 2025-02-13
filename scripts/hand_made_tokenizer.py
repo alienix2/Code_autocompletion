@@ -47,8 +47,8 @@ def get_merges(num_merges, tokens):
     return merges
 
 
-def get_vocab(merges):
-    vocab = {idx: bytes([idx]) for idx in range(max(merges.values()) + 1)}
+def get_vocab(merges, max_token):
+    vocab = {idx: bytes([idx]) for idx in range(max_token + 1)}
     for (i, j), idx in merges.items():
         vocab[idx] = vocab[i] + vocab[j]
     return vocab
@@ -72,5 +72,11 @@ def encode(text, merges):
     return tokens
 
 
-merges = get_merges(5000, tokenize_file("formatted_python_data.txt")[:100000])
-print(decode(encode("hello world", merges), get_vocab(merges)))
+tokens = tokenize_file("processed_datasets/formatted_python_data_be_file.txt")[:1000]
+max_token = max(tokens)
+
+merges = get_merges(
+    5000,
+    tokens,
+)
+print(decode(encode("hello world", merges), get_vocab(merges, max_token)))

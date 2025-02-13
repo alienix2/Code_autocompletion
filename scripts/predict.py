@@ -18,7 +18,7 @@ if torch.cuda.is_available():
 else:
     device = torch.device("cpu")
 
-model = transformer.BigramLanguageModel(tokenizer.get_vocab_size()).to(device)
+model = transformer.TransformerCodeModel(tokenizer.get_vocab_size()).to(device)
 
 model.load_state_dict(
     torch.load("python_model_no_sentences_128_context.pth", map_location=device)

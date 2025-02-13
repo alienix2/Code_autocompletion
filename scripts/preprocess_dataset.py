@@ -4,7 +4,6 @@ import os
 MAX_CHAR_LENGTH = 1000
 MIN_CHAR_LENGTH = 10
 
-# Collect all Python file paths in the 'repos_150k' directory
 full_paths = []
 for dirpath, dirnames, filenames in os.walk("simple_files"):
     for filename in filenames:
