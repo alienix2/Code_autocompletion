@@ -117,6 +117,6 @@ for i in range(5):
     print("Number:", i)
 ```
 
-## Use of a pretrained model
+### Use of a pretrained model
 
 Do the step 4 of the previous section and look at the **Models' hyperparameters** section to know which hyperparameters and tokenizer to use.
