@@ -5,8 +5,8 @@ import torch
 import argparse
 
 tokenizer = ByteLevelBPETokenizer(
-    "python_tokenizer_no_sentences-vocab.json",
-    "python_tokenizer_no_sentences-merges.txt",
+    "tokenizers/python_simple_tokenizer-vocab.json",
+    "tokenizers/python_simple_tokenizer-merges.txt",
 )
 tokenizer.add_special_tokens(["<s>", "</s>"])
 tokenizer.post_processor = TemplateProcessing(
@@ -21,7 +21,7 @@ else:
 model = transformer.TransformerCodeModel(tokenizer.get_vocab_size()).to(device)
 
 model.load_state_dict(
-    torch.load("python_model_no_sentences_128_context.pth", map_location=device)
+    torch.load("models/python_simple_model_64_context.pth", map_location=device)
 )
 model.eval()
 

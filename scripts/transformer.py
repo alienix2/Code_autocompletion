@@ -3,11 +3,11 @@ import torch.nn as nn
 import torch.nn.functional as F
 from tokenizers import ByteLevelBPETokenizer
 
-BLOCK_SIZE = 128
+BLOCK_SIZE = 64
 BATCH_SIZE = 32
 N_EMBD = 64
 N_HEAD = 8
-N_LAYERS = 16
+N_LAYERS = 12
 DROPOUT = 0.4
 LEARNING_RATE = 3e-4
 CHUNK_SIZE = 1024 * 51200

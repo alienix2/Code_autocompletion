@@ -54,7 +54,7 @@ It should be noted that actually the most effective models were the ones trained
 
 It should also be noted that the `simple` models are the only one really working and giving good suggestions but only on very specific scenarios that are represented in the dataset. Any try to generalize them proved unsuccessful unfortunately.
 
-### Hyperparameters models
+### Models' hyperparameters
 
 Pick the model to be used in the `predict.py` file and adjust the hyperparameters in the `transformer.py` python file accordingly
 
@@ -64,6 +64,13 @@ Pick the model to be used in the `predict.py` file and adjust the hyperparameter
 - `python_tokenizer_no_sentences-merges.txt` and
 - `python_tokenizer_no_sentences-vocab.json` for tokenizer
 - BLOCK_SIZE = 128, N_EMBEDS = 64, N_HEAD = 8, NUMBER_LAYERS = 16
+
+`python_model_no_sentences_256_context` should be use with:
+
+- `python_model_no_sentences_128_context.pth` model
+- `python_tokenizer_no_sentences-merges.txt` and
+- `python_tokenizer_no_sentences-vocab.json` for tokenizer
+- BLOCK_SIZE = 256, N_EMBEDS = 64, N_HEAD = 8, NUMBER_LAYERS = 16
 
 `python_simple_32_context.pth` should be used with:
 
@@ -86,13 +93,12 @@ Generating a model with the small dataset:
 1. preprocess the dataset with `preprocess_dataset.py` inserting the `simple_files` folder in the `os.walk` function and the wanted output name of the dataset in the `open` function. I will pick `simple_python_dataset.txt`
 2. tokenize the dataset using the `hf_tokenizer.py` script with `formatted_data_file = "simple_python_dataset"` and the correct folder and file name in the `tokenizer.save_model()` function. Also remember to edit the `special_tokens` value based on your needs, if you stick with the standard `preprocess_dataset` script provided, `special_tokens = ["<s>", "</s>"],` should be fine. I will pick `tokenizer.save_model("tokenizers", "python_simple_tokenizer")`. This will generate both the vocabulary and the merges files for the tokenizer with the appropriate names. Here you can also change the dimension of the vocabulary.
 3. train the model using the `train_transformer.py` script with the `data_path`, `vocab_path`, `merges_path`, `save_path` correctly set accordingly to the values chosen in the previous steps. I will pick `data_path = simple_python_dataset.txt`, `vocab_path = python_simple_tokenizer-vocab.json`, `merges_path = python_simple_tokenizer-merges.txt` and `save_path = python_simple_model.pth`. Here you can also change the number of epochs here. Remember to change the special tokens in the `train_model` function of the file `transformer.py` if you changed them in the section 2.
-
 4. Once done you can use the `predict.py` script with the context as parameter. Before calling it you must once again put the correct paths for the vocabulary and merges to initialize the `ByteLevelBPETokenizer` and the special tokens. You must also load the correct model, I picked:
 
 ```Python
 tokenizer = ByteLevelBPETokenizer(
-    "python_tokenizer_no_sentences-vocab.json",
-    "python_tokenizer_no_sentences-merges.txt",
+    "python_simple_tokenizer-vocab.json",
+    "python_simple_tokenizer-merges.txt",
 )
 tokenizer.add_special_tokens(["<s>", "</s>"])
 tokenizer.post_processor = TemplateProcessing(
@@ -101,3 +107,16 @@ tokenizer.post_processor = TemplateProcessing(
 
 model.load_state_dict(torch.load("python_simple_model.pth"))
 ```
+
+5. Check the results. For example i tried:
+`# Loop through range` and got:
+
+```Python
+# Loop through range
+for i in range(5):
+    print("Number:", i)
+```
+
+## Use of a pretrained model
+
+Do the step 4 of the previous section and look at the **Models' hyperparameters** section to know which hyperparameters and tokenizer to use.

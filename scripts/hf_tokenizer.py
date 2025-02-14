@@ -11,4 +11,4 @@ tokenizer.train(
     special_tokens=["<s>", "</s>"],
 )
 
-tokenizer.save_model("tokenizers", "python_tokenizer_be_file")
+tokenizer.save_model(".", "python_simple")
