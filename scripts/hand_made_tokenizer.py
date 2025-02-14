@@ -3,7 +3,7 @@ from tqdm import tqdm
 
 """
 NOTE: The basic script is way too slow to be used for large datasets and
-therefore another library will be used (It should work for small datasets).
+therefore another library will be used (this should work for small datasets).
 """
 
 
